@@ -1,0 +1,4 @@
+API/db.sqlite3
+.env
+*.pyc
+django
