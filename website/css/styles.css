@@ -1,0 +1,121 @@
+body {
+    background-color: #E4E4BE;
+    /* top right down left*/
+    margin: 0px 0px 250px 0px; 
+}
+
+section {
+    /* top right down left*/
+    margin: 50px 100px 0px 100px; 
+    /* font-family: 'Raleway', sans-serif; */
+    /* font-family: 'Chakra Petch', sans-serif; */
+    font-family: 'Teko', sans-serif;
+    /* font-family: 'Rajdhani', sans-serif;
+    font-family: 'Poiret One', cursive; */
+}
+
+h1 {
+    font-size: 60px;
+    font-family: 'Teko', sans-serif;
+    text-align: center;
+}
+
+p {
+    font-size: 14px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+h4 {
+    font-size: 14px;
+    font-weight: 9000;
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+}
+
+#logo {
+    /* size of the image; height scales alone somehow */
+    width: 200px;
+    /* Following lines center the logo */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+
+.topnav {
+    overflow: hidden;
+    background-color: #77918E;
+    text-align: center;
+  }
+  
+  .topnav a {
+    display: block;
+    color: #E4E4BE;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav #toplink a {
+    display: block;
+    color: #E4E4BE;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  /* .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  } */
+  
+  .active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .topnav .icon {
+    display: none;
+  }
+
+  /* Hamburger menu: BEGIN */
+  .bar1, .bar2, .bar3 {
+    width: 15px;
+    height: 2px;
+    background-color: #E4E4BE;
+    margin: 3px 0;
+    transition: 0.4s;
+}
+
+  /* Hamburger menu: END */
+  
+  /* When navbar menu is not expanded */
+  @media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {display: none;} /*:not(#toplink)*/
+    .topnav a.icon {
+      float: left;
+      display: inline;
+    }
+  }
+  
+  /* When navbar menu is expanded */
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+        float: left;
+    }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+    }
+
+
+  }
