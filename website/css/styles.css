@@ -2,6 +2,7 @@ body {
     background-color: #E4E4BE;
     /* top right down left*/
     margin: 0px 0px 250px 0px; 
+    transition: background-color .5s;
 }
 
 section {
@@ -20,6 +21,10 @@ h1 {
     text-align: center;
 }
 
+h1.sidenavBlock {
+    font-size: 20px;
+}
+
 p {
     font-size: 14px;
     font-family: 'Rajdhani', sans-serif;
@@ -31,6 +36,8 @@ h4 {
     font-family: 'Rajdhani', sans-serif;
     text-align: center;
 }
+
+
 
 #logo {
     /* size of the image; height scales alone somehow */
@@ -47,6 +54,74 @@ h4 {
     margin-right: auto;
 } */
 
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #77918E;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-right: 2px #ff7b0f solid;
+}
+
+div.sidenavBlock {
+    border-bottom: 2px #ff7b0f solid;
+    color: #E4E4BE;
+    font-size: 12px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #E4E4BE;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closeButton {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
+#topBar {
+    background-color: #77918E;
+    color: #E4E4BE;
+    text-align: center;
+}
+
+#openButton {
+    display: block;
+    
+    
+}
+
+#currentPage {
+    display: inline;
+}
 
 .topnav {
     overflow: hidden;
