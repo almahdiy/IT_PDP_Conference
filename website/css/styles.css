@@ -48,6 +48,12 @@ h4 {
     margin-right: auto;
 }
 
+#logo_sidebar {
+    width: 200px;
+    float: right;
+    padding: 0px 0px 100px 0px;
+}
+
 /* .center {
     display: block;
     margin-left: auto;
@@ -65,6 +71,7 @@ h4 {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+
     border-right: 2px #ff7b0f solid;
 }
 
@@ -72,16 +79,29 @@ div.sidenavBlock {
     border-bottom: 2px #ff7b0f solid;
     color: #E4E4BE;
     font-size: 12px;
+    Text-align: left;
+    padding: 5px 0px 20px 6px;
+    
+}
+
+h1.sidenavBlockTitle {
+    color: #ff7b0f;
+    font-size: 18px;
+    font-family: 'Rajdhani', sans-serif;
+    /* display: block; */
+    transition: 0.3s;
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 0px 8px 8px 8px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 18px;
     color: #E4E4BE;
-    display: block;
+    font-family: 'Rajdhani', sans-serif;
+    display: inline;
     transition: 0.3s;
 }
+
 
 .sidenav a:hover {
     color: #f1f1f1;
@@ -94,6 +114,15 @@ div.sidenavBlock {
     font-size: 36px;
     margin-left: 50px;
 }
+
+svg {
+    width: 30px;
+    height: 30px;
+    fill: #E4E4BE;
+    stroke: #E4E4BE; 
+    display: inline;
+}
+
 
 #main {
     transition: margin-left .5s;
