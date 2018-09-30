@@ -1,0 +1,10 @@
+certifi==2018.4.16
+chardet==3.0.4
+-e git+https://github.com/django/django.git@4263cd0e095c55a1011e5bf0746d651126a8da5f#egg=Django
+django-filter==2.0.0
+djangorestframework==3.8.2
+idna==2.7
+Markdown==2.6.11
+pytz==2018.5
+requests==2.19.1
+urllib3==1.23
