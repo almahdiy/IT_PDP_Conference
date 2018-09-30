@@ -19,6 +19,13 @@ Prerequisites
 
 How to Run
 ----------
+Back End Code (Located in `/API`):
+1. Install all the dependencies (e.g. pip install -r requirements.txt).
+2. Run the back end server via invoking `python manage.py runserver`.
+3. Launch a browser and connect to the server (e.g. 127.0.0.1:8000/admin).
+
+Front End Code (Located in `/website`):
+1. Execute the `index.html` and your browser will launch.
 
 
 Key Features
