@@ -3,7 +3,7 @@ Project Reality: 2018 IT PDP Conference
 
 <br><br>
 <p align="center">
-  <img align="middle" width=500 src="assets/logo_main.png">
+  <img align="middle" width=400 src="assets/logo_main.png">
 </p>
 <br><br>
 
