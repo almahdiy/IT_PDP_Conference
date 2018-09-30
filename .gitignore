@@ -53,8 +53,11 @@ coverage.xml
 
 # Django stuff:
 *.log
-local_settings.py
+*.pot
+*.pyc
 .cache
+__pycache__/
+local_settings.py
 django
 
 # Sphinx documentation
