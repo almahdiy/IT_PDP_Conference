@@ -1,7 +1,15 @@
 from django.db import models
 
-# Create your models here.
 
-#for PDPs to submit their questions
 class Question(models.Model):
-    question_text = models.CharField(max_length=200)
+    """
+    Model for PDPs to submit their questions.
+    """
+    title = models.TextField()
+    body = models.TextField()
+    votes = models.IntegerField()
+    isFiltered = models.BooleanField()
+
+    def __str__(self):
+        return "Title={}\nVotes={}\nisFiltered={}"\
+               .format(self.title, self.votes, self.isFiltered)
