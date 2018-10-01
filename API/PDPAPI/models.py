@@ -5,11 +5,9 @@ class Question(models.Model):
     """
     Model for PDPs to submit their questions.
     """
-    title = models.TextField()
-    body = models.TextField()
-    votes = models.IntegerField()
-    isFiltered = models.BooleanField()
+    body = models.TextField(default='')
+    votes = models.IntegerField(default=0)
+    isAppropriate = models.BooleanField(default=False)
 
     def __str__(self):
-        return "Title={}\nVotes={}\nisFiltered={}"\
-               .format(self.title, self.votes, self.isFiltered)
+        return self.body
