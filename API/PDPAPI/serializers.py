@@ -4,5 +4,5 @@ from .models import Question
 
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Question #what model you want to serializers
-        fields = '__all__' #do this to return everything
+        model = Question        # What model you want to serializers
+        fields = '__all__'      # Do this to return everything

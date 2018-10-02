@@ -1,16 +1,11 @@
-from django.shortcuts import render
-from django.shortcuts import get_object_or_404
-from django.http import Http404, HttpResponse, JsonResponse, HttpResponseRedirect
-from rest_framework.views import APIView
-from rest_framework.response import Response 
+from django.http import Http404
 from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from .models import Question
 from .serializers import QuestionSerializer
-from random import randint
-from operator import itemgetter
-import requests
-import base64
-# Create your views here.
+
 
 class QuestionList(APIView):
     """
@@ -31,7 +26,7 @@ class QuestionList(APIView):
 
 class QuestionDetail(APIView):
     """
-    access a specific Question object, edit it, and delete it.
+    Access a specific Question object, edit it, and delete it.
     """
     def get_object(self, pk):
         try:
