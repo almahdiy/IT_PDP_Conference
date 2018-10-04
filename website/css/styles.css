@@ -2,7 +2,6 @@ html {
     height: 500px;
 }
 
-
 body {
     background-color: #E4E4BE;
     /* top right down left*/
@@ -130,6 +129,7 @@ svg {
 #main {
     transition: margin-left .5s;
     padding: 16px;
+    margin-left: 0px !important;
 }
 
 @media screen and (max-height: 450px) {
