@@ -92,7 +92,7 @@ h4 {
     background-color: #77918E;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
+    padding-top: 50px;
 
     border-right: 2px #ff7b0f solid;
 }
@@ -115,7 +115,7 @@ h1.sidenavBlockTitle {
 }
 
 .sidenav a {
-    padding: 0px 8px 8px 8px;
+    padding-left: 15px;
     text-decoration: none;
     font-size: 18px;
     color: #E4E4BE;
@@ -131,9 +131,14 @@ h1.sidenavBlockTitle {
 .sidenav .closeButton {
     position: absolute;
     top: 0;
-    right: 25px;
+    right: 5px;
     font-size: 36px;
     margin-left: 50px;
+}
+
+.divider {
+    width: auto;
+    height: 8px;
 }
 
 svg {
@@ -141,6 +146,12 @@ svg {
     height: 30px;
     fill: #E4E4BE;
     stroke: #E4E4BE;
+    display: inline;
+}
+
+.nounicons {
+    width: 30px;
+    height: 30px;
     display: inline;
 }
 
