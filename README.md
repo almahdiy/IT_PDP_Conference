@@ -19,12 +19,12 @@ Prerequisites
 
 How to Run
 ----------
-Back End Code (Located in `/API`):
-1. Install all the dependencies (e.g. pip install -r requirements.txt).
+Back End Code (located in `/API`):
+1. Install all the dependencies (e.g. `pip install -r requirements.txt`).
 2. Run the back end server via invoking `python manage.py runserver`.
 3. Launch a browser and connect to the server (e.g. 127.0.0.1:8000/admin).
 
-Front End Code (Located in `/website`):
+Front End Code (located in `/website`):
 1. Execute the `index.html` and your browser will launch.
 
 
@@ -40,3 +40,20 @@ Authors
 -------
 - Programming Team (Yaqeen Mahdi)
 - Graphics Team (artwork assets)
+
+
+TODO
+----
+- Develop the Agenda page
+- Develop the Ice Breaker page
+- Develop the Q&A Session page
+
+- Develop the Booth Showcase page
+
+- Develop the Agenda Team page
+- Develop the Programming Team page
+- Develop the Graphics Team page
+- Develop the 2nd Hall page
+- Develop the About page
+
+- Optimise the navigation bar visually
