@@ -107,8 +107,9 @@ div.sidenavBlock {
 }
 
 h1.sidenavBlockTitle {
-    color: #ff7b0f;
+    color: #ffaa0c;
     font-size: 18px;
+    font-weight: bold;
     font-family: 'Rajdhani', sans-serif;
     /* display: block; */
     transition: 0.3s;
@@ -116,16 +117,18 @@ h1.sidenavBlockTitle {
 
 .sidenav a {
     padding-left: 15px;
+    padding-top: 12px;
     text-decoration: none;
     font-size: 18px;
     color: #E4E4BE;
     font-family: 'Rajdhani', sans-serif;
-    display: inline;
     transition: 0.3s;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: #ffaa0c;
 }
 
 .sidenav .closeButton {
@@ -152,7 +155,8 @@ svg {
 .nounicons {
     width: 30px;
     height: 30px;
-    display: inline;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 #main {
