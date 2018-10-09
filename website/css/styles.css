@@ -54,7 +54,7 @@ h4 {
 
 #booth_layout {
     /* size of the image; height scales alone somehow */
-    width: 250px;
+    width: 80vw;
     /* Following lines center the logo */
     display: block;
     margin-left: auto;
@@ -63,7 +63,7 @@ h4 {
 
 #booth_table {
     /* size of the image; height scales alone somehow */
-    width: 250px;
+    width: 80vw;
     /* Following lines center the logo */
     display: block;
     margin-left: auto;
