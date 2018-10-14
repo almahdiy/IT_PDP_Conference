@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Hello World!</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- External link (relative) to your main stylesheet -->
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <!-- External link to Google fonts to be used on this page -->
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch|Poiret+One|Rajdhani|Raleway|Teko" rel="stylesheet">
+
+    <!-- External link (relative) to your javascript file -->
+    <script src="../js/index.js"></script>
+    <script src="../js/https_code.jquery.com_jquery-1.10.2.js"></script>        <!-- Used to refactor navigation bar -->
+</head>
+
+<body>
+<!--Importing navigation bar-->
+<div id="nav-placeholder">
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("navigation.html");
+        });
+    </script>
+</div>
+
+<!--Main content of the page-->
+<div id="main">
+    <section>
+        <img id="booth_layout" src="../images/agenda.png" alt="layout" vspace="20"/>
+    </section>
+</div>
+
+</body>
+</html>

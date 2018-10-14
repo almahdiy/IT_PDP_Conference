@@ -52,6 +52,19 @@ h4 {
     margin-right: auto;
 }
 
+#agenda {
+    /* size of the image; height scales alone somehow */
+    width: 100%;
+
+    /*Size of the smallest device on the chrome dev tool. We should change it so that it is always
+    equal to the screen width, but this does the job for now. */
+    min-width: 320px;
+
+    /* Following lines center the agenda */
+    display: block;
+    margin-top: 40px;
+}
+
 #booth_layout {
     /* size of the image; height scales alone somehow */
     width: 80vw;
