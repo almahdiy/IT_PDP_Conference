@@ -2,10 +2,14 @@ from django.http import Http404
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 
-from .models import Question
-from .serializers import QuestionSerializer
+from .models import Question, Authentication
+from .serializers import QuestionSerializer, AuthenticationSerializer
 
+
+
+SESSION_ID = "1234"
 
 class QuestionList(APIView):
     """
@@ -51,3 +55,22 @@ class QuestionDetail(APIView):
         question = self.get_object(pk)
         question.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+@api_view(['GET', 'POST', ])
+def authenticate(request):
+    """
+    Takes a session ID and compares it to a constant value
+    """
+    print("HERE")
+    if(request.method == 'POST'):
+        #data is a dictionary that has the username and the password the user tried
+        data = AuthenticationSerializer(request.data).data
+        submission = data["sessionID"]
+        if(submission == SESSION_ID):
+            return Response(True)
+        else:
+            return Response(False)
+            
+        
