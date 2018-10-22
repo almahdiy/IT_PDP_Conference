@@ -19,4 +19,4 @@ class Authentication(models.Model):
     """
     Authentication mechanism so that only PDPs present at the auditorium can access the website.
     """
-    sessionID = models.TextField(default="")
+    sessionID = models.CharField(max_length=250)
