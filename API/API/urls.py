@@ -22,6 +22,11 @@ from PDPAPI import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^questions/$', views.QuestionList.as_view()),
-    url(r'^authenticate/$', views.authenticate),
+    url(r'^questions/(?P<pk>[0-9]+)$', views.QuestionDetail.as_view()),
+    url(r'^mcqs/$', views.MCQList.as_view()),
+    url(r'^mcqs/(?P<pk>[0-9]+)$', views.MCQDetail.as_view()),
+    url(r'^options/$', views.MCQOptionList.as_view()),
+    url(r'^options/(?P<pk>[0-9]+)$', views.MCQOptionDetail.as_view()),
+    url(r'^mcqsoptions/(?P<pk>[0-9]+)/$', views.get_MCQ_options),
 
 ]
