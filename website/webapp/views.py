@@ -65,6 +65,11 @@ def booths(request):
 	return HttpResponse(template.render())
 
 
+def icebreaker(request):
+	template = loader.get_template("webapp/icebreaker.html")
+	return HttpResponse(template.render())
+
+
 def splash(request):
     if request.method == 'GET':
         template = loader.get_template("webapp/splash.html")

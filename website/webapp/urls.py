@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^agenda$', views.agenda, name="agenda"),
     url(r'^booths$', views.booths, name="booths"),
     url(r'^splash$', views.splash, name="splash"),
+    url(r'^icebreaker$', views.icebreaker, name="icebreaker"),
 ]
