@@ -116,7 +116,8 @@ h4 {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 50px;
-
+    /* To make sure that the navbar tops everything */
+    z-index: 100; 
     border-right: 2px #ff7b0f solid;
 }
 
@@ -510,7 +511,7 @@ html {
     position: relative;
     /* height of the ::before element has to be the same */
     height: 50px; 
-    /* z-index: 2; */
+    z-index: 2;
     transition: color 200ms ease-in;
     overflow: hidden;
   }
