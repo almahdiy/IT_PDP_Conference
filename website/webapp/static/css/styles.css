@@ -480,14 +480,12 @@ html {
   }
 
   div#splash_background {
-    background-image: url(logo_splash_background.png);
+    background-image: url(../images/logo_splash_background.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 100%;
     padding: 15px;
   }
-
-
 
   /* Ice breaker specific styling */
 
