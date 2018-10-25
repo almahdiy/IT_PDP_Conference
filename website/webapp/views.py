@@ -78,6 +78,11 @@ def team_programming(request):
     return HttpResponse(template.render())
 
 
+def team_logistics(request):
+    template = loader.get_template("webapp/team_logistics.html")
+    return HttpResponse(template.render())
+
+
 def splash(request):
     if request.method == 'GET':
         template = loader.get_template("webapp/splash.html")

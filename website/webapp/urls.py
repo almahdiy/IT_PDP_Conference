@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^icebreaker$', views.icebreaker, name="icebreaker"),
     url(r'^metaverse$', views.metaverse, name="metaverse"),
     url(r'^team_programming$', views.team_programming, name="team_programming"),
+    url(r'^team_logistics$', views.team_logistics, name="team_logistics"),
 ]
