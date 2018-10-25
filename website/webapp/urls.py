@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'^booths$', views.booths, name="booths"),
     url(r'^splash$', views.splash, name="splash"),
     url(r'^icebreaker$', views.icebreaker, name="icebreaker"),
+    url(r'^metaverse$', views.metaverse, name="metaverse"),
+    url(r'^team_programming$', views.team_programming, name="team_programming"),
 ]

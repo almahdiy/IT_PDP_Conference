@@ -3,7 +3,6 @@ ColorPalette {
     color: #ff7b0f, #ffaa0c, #4e9894, #5e7777, #efe1b8, #77918E;
 }
 
-
 html {
     height: 500px;
 }
@@ -26,10 +25,11 @@ section {
 }
 
 h1 {
-    font-size: 60px;
+    font-size: 40px;
     font-family: 'Teko', sans-serif;
     text-align: center;
     line-height: 125%;
+    margin-bottom: 2.5%;
 }
 
 h1.sidenavBlock {
@@ -40,10 +40,12 @@ h1.splash_title {
     font-size: 50px;
 }
 
-p {
-    font-size: 18px;
-    font-family: 'Rajdhani', sans-serif;
-    text-align: justify;
+h1.subtitle{
+    font-size: 44px;
+    font-family: 'Teko', sans-serif;
+    letter-spacing: 1px;
+    font-style: italic;
+    color: #ff7b0f;
 }
 
 h4 {
@@ -51,6 +53,22 @@ h4 {
     font-weight: 900;
     font-family: 'Rajdhani', sans-serif;
     text-align: center;
+}
+
+p {
+    font-size: 18px;
+    font-family: 'Rajdhani', sans-serif;
+    text-align: justify;
+}
+
+p.credits {
+    text-align: center;
+}
+
+ol {
+    font-size: 18px;
+    font-family: 'Rajdhani', sans-serif;
+    text-align: justify;
 }
 
 #logo {
@@ -117,7 +135,7 @@ h4 {
     transition: 0.5s;
     padding-top: 50px;
     /* To make sure that the navbar tops everything */
-    z-index: 100; 
+    z-index: 100;
     border-right: 2px #ff7b0f solid;
 }
 
@@ -176,11 +194,26 @@ svg {
     display: inline;
 }
 
-.nounicons {
+img.nounicons {
     width: 30px;
     height: 30px;
     display: inline-block;
     vertical-align: middle;
+}
+
+img.badge {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35px;
+}
+
+div#images {
+    text-align: center;
+}
+
+div#images a{
+    text-decoration: none;
 }
 
 #main {
@@ -203,8 +236,8 @@ svg {
     background-color: #77918E;
     color: #E4E4BE;
     text-align: left;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     padding-left: 15px;
 }
 
@@ -298,10 +331,8 @@ svg {
 
 /* The hamburger menu that displays the navbar */
 #burgerIcon {
-   font-size: 28pt;
+    font-size: 28pt;
 }
-
-
 
 /* Splash Menu Styling */
 
@@ -312,34 +343,30 @@ Basic input element using psuedo classes
 html {
     font-family: 'Lora', sans-serif;
     width: 100%;
-  }
+}
 
-  
-  h1 {
-    font-size: 28px;
-    margin-bottom: 2.5%;
-  }
-  
-  input,
-  span,
-  /* label, */
-  textarea {
+
+input,
+span,
+    /* label, */
+textarea {
     font-family: 'Ubuntu', sans-serif;
     display: block;
     margin: 10px;
     padding: 5px;
     border: none;
     font-size: 10px;
-  }
-  
-  textarea:focus,
-  input:focus {
+}
+
+textarea:focus,
+input:focus {
     outline: 0;
-  }
-  /* Question */
-  
-  input.question,
-  textarea.question {
+}
+
+/* Question */
+
+input.question,
+textarea.question {
     font-size: 48px;
     font-weight: 300;
     /* border-radius: 2px; */
@@ -354,11 +381,12 @@ html {
     display: block;
     margin-left: auto;
     margin-right: auto;
-  }
-  /* Underline and Placeholder */
-  
-  input.question + label,
-  textarea.question + label {
+}
+
+/* Underline and Placeholder */
+
+input.question + label,
+textarea.question + label {
     display: block;
     position: relative;
     white-space: nowrap;
@@ -369,53 +397,51 @@ html {
     -webkit-transition: width 0.4s ease;
     transition: width 0.4s ease;
     height: 0px;
-  }
-  
-  input.question:focus + label,
-  textarea.question:focus + label {
+}
+
+input.question:focus + label,
+textarea.question:focus + label {
     width: 80%;
-  }
-  
-  input.question:focus,
-  input.question:valid {
+}
+
+input.question:focus,
+input.question:valid {
     padding-top: 35px;
-  }
-  
-  textarea.question:valid,
-  textarea.question:focus {
+}
+
+textarea.question:valid,
+textarea.question:focus {
     margin-top: 35px;
-  }
-  
-  /* When the text field is selected, this happens */
-  input.question:focus + label > span,
-  input.question:valid + label > span {
+}
+
+/* When the text field is selected, this happens */
+input.question:focus + label > span,
+input.question:valid + label > span {
     top: -100px;
     font-size: 10px;
     color: #333;
-  }
-  
-  textarea.question:focus + label > span,
-  textarea.question:valid + label > span {
+}
+
+textarea.question:focus + label > span,
+textarea.question:valid + label > span {
     top: -150px;
     font-size: 22px;
     color: #333;
-  }
-  
+}
 
-  /* input.question:valid + label,
-  textarea.question:valid + label {
-    border-color: green;
-  } */
-  
-  input.question:invalid,
-  textarea.question:invalid {
+/* input.question:valid + label,
+textarea.question:valid + label {
+  border-color: green;
+} */
+
+input.question:invalid,
+textarea.question:invalid {
     box-shadow: none;
-  }
-  
+}
 
-  /* When the input field isn't selected */
-  input.question + label > span,
-  textarea.question + label > span {
+/* When the input field isn't selected */
+input.question + label > span,
+textarea.question + label > span {
     font-weight: 300;
     margin: 0;
     position: absolute;
@@ -426,9 +452,9 @@ html {
     z-index: -1;
     -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
     transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
-  }
-  
-  input[type="submit"] {
+}
+
+input[type="submit"] {
     -webkit-transition: opacity 0.2s ease, background 0.2s ease;
     transition: opacity 0.2s ease, background 0.2s ease;
     display: block;
@@ -440,65 +466,65 @@ html {
     margin-left: auto;
     margin-right: auto;
 
-  }
-  
-  input[type="submit"]:hover {
+}
+
+input[type="submit"]:hover {
     background: #ffaa0c;
-  }
-  
-  input[type="submit"]:active {
+}
+
+input[type="submit"]:active {
     background: #ffaa0c;
-  }
-  
-  input.question:valid ~ input[type="submit"], textarea.question:valid ~ input[type="submit"] {
+}
+
+input.question:valid ~ input[type="submit"], textarea.question:valid ~ input[type="submit"] {
     -webkit-animation: appear 1s forwards;
     animation: appear 1s forwards;
-  }
-  
-  input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input[type="submit"] {
+}
+
+input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input[type="submit"] {
     display: none;
-  }
-  
-  @-webkit-keyframes appear {
+}
+
+@-webkit-keyframes appear {
     100% {
-      opacity: 1;
+        opacity: 1;
     }
-  }
-  
-  @keyframes appear {
+}
+
+@keyframes appear {
     100% {
-      opacity: 1;
+        opacity: 1;
     }
-  }
-  
-  body#splash_body {
+}
+
+body#splash_body {
     background-color: #77918E;
     /* top right down left*/
     margin: 200px 60px 50px 60px;
     text-align: center;
 
-  }
+}
 
-  div#splash_background {
+div#splash_background {
     background-image: url(../images/logo_splash_background.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 100%;
     padding: 15px;
-  }
+}
 
-  /* Ice breaker specific styling */
+/* Ice breaker specific styling */
 
-  /* The entire rectangle */
-  .inputGroup {
-    background-color: #77918E; 
+/* The entire rectangle */
+.inputGroup {
+    background-color: #77918E;
     display: block;
     /* margin: 10px 0;
     position: relative; */
-  }
-  
-  /* Text in the unselected options */
-  .inputGroup label {
+}
+
+/* Text in the unselected options */
+.inputGroup label {
     margin: 20px 0px 0 0;
     /* padding: 12px 30px; */
     width: 100%;
@@ -508,31 +534,31 @@ html {
     cursor: pointer;
     position: relative;
     /* height of the ::before element has to be the same */
-    height: 50px; 
+    height: 50px;
     z-index: 2;
     transition: color 200ms ease-in;
     overflow: hidden;
-  }
+}
 
-  /* What comes right after the label */
-  /* .inputGroup label:after {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    content: "where does content go?";
-    background-color: #5e7777; 
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale3d(1, 1, 1);
-    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0;
-    z-index: -1;
-  } */
+/* What comes right after the label */
+/* .inputGroup label:after {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  content: "where does content go?";
+  background-color: #5e7777;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale3d(1, 1, 1);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  z-index: -1;
+} */
 
-  /* The circular button, both selected & unselected */
-  .inputGroup label:before {
-    /* margin: 20px 0px 0 0; */
+/* The circular button, both selected & unselected */
+.inputGroup label:before {
+     /*margin: 20px 0px 0 0; */
     width: 64px;
     height: 50px;
     content: "";
@@ -549,7 +575,7 @@ html {
     /* "top" is half the height */
     top: 25px;
     /* inline-block allows you to set the width and height of the element*/
-    display: inline-block; 
+    display: inline-block;
     /* right: 30px; */
     /* top: 50%; */
     transform: translateY(-50%);
@@ -557,25 +583,27 @@ html {
     transition: all 200ms ease-in;
     /* padding: 0 10px; */
     margin: 0px 10px 0px 0px;
-  }
-  .inputGroup input:checked ~ label {
-    color: #efe1b8;
-  }
-  /* .inputGroup input:checked ~ label:after {
-    transform: translate(-50%, -50%) scale3d(56, 56, 1);
-    opacity: 1;
-  } */
+}
 
-  /* The circular checkbox, selected */
-  .inputGroup input:checked ~ label:before {
+.inputGroup input:checked ~ label {
+    color: #efe1b8;
+}
+
+/* .inputGroup input:checked ~ label:after {
+  transform: translate(-50%, -50%) scale3d(56, 56, 1);
+  opacity: 1;
+} */
+
+/* The circular checkbox, selected */
+.inputGroup input:checked ~ label:before {
     border-right: 6px solid #ffaa0c;
     background-color: #54E0C7;
-  }
+}
 
-  /* Don't know how to describe this, but when removed the 
-     options look weird, and the default radio buttons are 
-     visible :S */
-  .inputGroup input {
+/* Don't know how to describe this, but when removed the
+   options look weird, and the default radio buttons are
+   visible :S */
+.inputGroup input {
     /* width: 32px;
     height: 32px; */
     order: 1;
@@ -586,30 +614,28 @@ html {
     transform: translateY(-50%);
     cursor: pointer;
     visibility: hidden;
-  }
-  
-  .form {
+}
+
+.form {
     padding: 0 16px;
     max-width: 550px;
     margin: 50px auto;
     font-size: 18px;
     font-weight: 600;
     line-height: 36px;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-  
-  /* html {
-    box-sizing: border-box;
-  } */
-  
+}
 
-  code {
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/* html {
+  box-sizing: border-box;
+} */
+
+code {
     background-color: #9AA3AC;
     padding: 0 8px;
-  }
-
+}
