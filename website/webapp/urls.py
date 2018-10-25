@@ -14,5 +14,5 @@ urlpatterns = [
     url(r'^team_programming$', views.team_programming, name="team_programming"),
     url(r'^team_logistics$', views.team_logistics, name="team_logistics"),
     url(r'^team_agenda$', views.team_agenda, name="team_agenda"),
-    url(r'^team_media$', views.team_media, name="team_media"),
+    url(r'^team_graphics$', views.team_graphics, name="team_graphics"),
 ]

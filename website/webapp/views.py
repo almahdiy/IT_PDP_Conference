@@ -88,8 +88,8 @@ def team_agenda(request):
     return HttpResponse(template.render())
 
 
-def team_media(request):
-    template = loader.get_template("webapp/team_media.html")
+def team_graphics(request):
+    template = loader.get_template("webapp/team_graphics.html")
     return HttpResponse(template.render())
 
 
