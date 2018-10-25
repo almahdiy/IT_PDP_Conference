@@ -47,6 +47,7 @@ TODO
 - Add navigation bar to Metaverse page
 - Add rectangular instructions to Metaverse page
 - Add navigation bar to Team Programming page
+- Add navigation bar to Team Logistics page
 
 
 Bugs

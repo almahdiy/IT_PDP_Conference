@@ -83,6 +83,16 @@ def team_logistics(request):
     return HttpResponse(template.render())
 
 
+def team_agenda(request):
+    template = loader.get_template("webapp/team_agenda.html")
+    return HttpResponse(template.render())
+
+
+def team_media(request):
+    template = loader.get_template("webapp/team_media.html")
+    return HttpResponse(template.render())
+
+
 def splash(request):
     if request.method == 'GET':
         template = loader.get_template("webapp/splash.html")
