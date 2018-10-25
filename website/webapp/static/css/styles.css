@@ -236,9 +236,9 @@ div#images a{
     background-color: #77918E;
     color: #E4E4BE;
     text-align: left;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
 }
 
 #openButton {
@@ -331,7 +331,7 @@ div#images a{
 
 /* The hamburger menu that displays the navbar */
 #burgerIcon {
-    font-size: 28pt;
+    width: 35px;
 }
 
 /* Splash Menu Styling */
