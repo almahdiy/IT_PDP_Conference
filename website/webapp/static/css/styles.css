@@ -494,7 +494,7 @@ html {
   /* The entire rectangle */
   .inputGroup {
     background-color: #77918E; 
-    display: block;
+    vertical-align: middle;
     /* margin: 10px 0;
     position: relative; */
   }
@@ -504,13 +504,12 @@ html {
     margin: 20px 0px 0 0;
     /* padding: 12px 30px; */
     width: 100%;
-    display: block;
+    display: inline;
     text-align: left;
     color: #efe1b8;
     cursor: pointer;
     position: relative;
     /* height of the ::before element has to be the same */
-    height: 50px; 
     z-index: 2;
     transition: color 200ms ease-in;
     overflow: hidden;
@@ -536,7 +535,7 @@ html {
   .inputGroup label:before {
     /* margin: 20px 0px 0 0; */
     width: 64px;
-    height: 50px;
+    height: 100px;
     content: "";
     border-right: 6px solid #ffaa0c;
     background-color: #ff7b0f;
@@ -552,6 +551,7 @@ html {
     top: 25px;
     /* inline-block allows you to set the width and height of the element*/
     display: inline-block; 
+    vertical-align: text-top;
     /* right: 30px; */
     /* top: 50%; */
     transform: translateY(-50%);
