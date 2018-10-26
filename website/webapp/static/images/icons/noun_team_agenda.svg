@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   data-name="Layer 1"
+   viewBox="0 0 85 103"
+   x="0px"
+   y="0px"
+   version="1.1"
+   id="svg24"
+   sodipodi:docname="noun_team_agenda.svg"
+   width="85"
+   height="103"
+   inkscape:version="0.92.1 r15371">
+  <metadata
+     id="metadata30">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Artboard 25</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs28" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1858"
+     inkscape:window-height="1057"
+     id="namedview26"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.888"
+     inkscape:cx="-185.0106"
+     inkscape:cy="36.3"
+     inkscape:window-x="54"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg24" />
+  <title
+     id="title2">Artboard 25</title>
+  <g
+     id="g40"
+     style="fill:#efe1b8"
+     transform="translate(-7.5,4.2000015)">
+    <path
+       id="path4"
+       d="M 78.95,12.49 H 68.58 v 9 H 78.95 A 2.06,2.06 0 0 1 81,23.54 v 64.2 a 2.06,2.06 0 0 1 -2.05,2.05 H 21.05 A 2.06,2.06 0 0 1 19,87.75 V 23.54 a 2.06,2.06 0 0 1 2.05,-2.05 h 12.36 v -9 H 21.05 A 11.07,11.07 0 0 0 10,23.54 v 64.2 A 11.07,11.07 0 0 0 21.05,98.8 h 57.9 A 11.07,11.07 0 0 0 90,87.75 V 23.54 A 11.07,11.07 0 0 0 78.95,12.49 Z"
+       style="fill:#efe1b8"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path6"
+       d="m 51,1.2 a 9.58,9.58 0 0 0 -9.58,9.58 V 21.51 H 60.58 V 10.78 A 9.58,9.58 0 0 0 51,1.2 Z"
+       style="fill:#efe1b8"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path8"
+       d="M 69.58,33.68 H 56.51 a 3.88,3.88 0 0 0 -3.88,3.88 v 0 a 3.88,3.88 0 0 0 3.88,3.88 h 13.07 a 3.88,3.88 0 0 0 0,-7.76 z"
+       style="fill:#efe1b8"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path10"
+       d="m 31.19,33.48 a 1.7,1.7 0 0 0 -2.25,0.14 L 27,35.53 a 1.7,1.7 0 0 0 0,2.31 l 6.71,7.75 a 1.7,1.7 0 0 0 2.54,0 l 10.84,-11.9 v 0 A 1.69,1.69 0 0 0 47,31.34 l -1.91,-1.91 a 1.7,1.7 0 0 0 -2.32,-0.07 l -7.92,7 z"
+       style="fill:#efe1b8"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path12"
+       d="M 47,50.18 45.09,48.27 A 1.7,1.7 0 0 0 42.77,48.2 l -7.92,7 -3.68,-2.88 a 1.7,1.7 0 0 0 -2.25,0.14 L 27,54.36 a 1.7,1.7 0 0 0 0,2.31 l 6.71,7.75 a 1.7,1.7 0 0 0 2.54,0 L 47.09,52.53 v 0 A 1.69,1.69 0 0 0 47,50.18 Z"
+       style="fill:#efe1b8"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path14"
+       d="M 69.58,52.51 H 56.51 a 3.88,3.88 0 1 0 0,7.76 h 13.07 a 3.88,3.88 0 0 0 0,-7.76 z"
+       style="fill:#efe1b8"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path16"
+       d="M 45.12,67.11 A 1.7,1.7 0 0 0 42.8,67 l -7.92,7 -3.68,-2.88 a 1.7,1.7 0 0 0 -2.25,0.14 L 27,73.2 a 1.7,1.7 0 0 0 0,2.31 l 6.71,7.75 a 1.7,1.7 0 0 0 2.54,0 l 10.84,-11.9 v 0 A 1.69,1.69 0 0 0 47,69 Z"
+       style="fill:#efe1b8"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path18"
+       d="M 69.58,71.35 H 56.51 a 3.88,3.88 0 0 0 0,7.76 h 13.07 a 3.88,3.88 0 0 0 0,-7.76 z"
+       style="fill:#efe1b8"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

@@ -48,8 +48,11 @@ TODO
 - Add rectangular instructions to Metaverse page
 - Add navigation bar to Team Programming page
 - Add navigation bar to Team Logistics page
+- Develop the 'Committee' page that contains theme and hierarchy
 
 
 Bugs
 ----
 - File linking does not contain `.html` suffix (code smell?)
+- Navigation bar scales `sidenavBlock` in y-axis a bit (shifts text horizontal)
+- Re-add committee logo at the bottom of navigation bar
