@@ -44,16 +44,15 @@ Authors
 
 TODO
 ----
-- Develop the Agenda page
-- Develop the Ice Breaker page
-- Develop the Q&A Session page
+- Add navigation bar to Metaverse page
+- Add rectangular instructions to Metaverse page
+- Add navigation bar to Team Programming page
+- Add navigation bar to Team Logistics page
+- Develop the 'Committee' page that contains theme and hierarchy
 
-- Develop the Booth Showcase page
 
-- Develop the Agenda Team page
-- Develop the Programming Team page
-- Develop the Graphics Team page
-- Develop the 2nd Hall page
-- Develop the About page
-
-- Optimise the navigation bar visually
+Bugs
+----
+- File linking does not contain `.html` suffix (code smell?)
+- Navigation bar scales `sidenavBlock` in y-axis a bit (shifts text horizontal)
+- Re-add committee logo at the bottom of navigation bar

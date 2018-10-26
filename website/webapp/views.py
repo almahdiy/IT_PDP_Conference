@@ -1,11 +1,11 @@
-from django.shortcuts import render
-import json
 import requests
-from django.template import Context, loader
-from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.template import loader
+
 from .forms import AuthenticationForm
 
-#To be replaced once we have the API on the production server
+# To be replaced once we have the API on the production server
 API_URL = "http://127.0.0.1:8000/"
 
 
@@ -13,8 +13,8 @@ API_URL = "http://127.0.0.1:8000/"
 def home(request):
     if request.method == 'GET':
         current_user_id = str(request.session.get('loggedin', 0))
-        if(current_user_id == "0"): #The session field will be storing a zero if no user is logged in
-            #two cases: logged in or no. Render two different templates depending on the session
+        if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
+            # two cases: logged in or no. Render two different templates depending on the session
             form = AuthenticationForm()
             template_name = "webapp/splash.html"
             return render(request, template_name, {'form': form})
@@ -38,12 +38,13 @@ def home(request):
             r = requests.post(API_URL + 'authenticate/', data=dic)
             print(r.text)
             if (r.text == "false"):  # None was returned
-                print("wrong session ID") #need to display an error message e.g. "wrong session ID try again" will do this later
+                print(
+                    "wrong session ID")  # need to display an error message e.g. "wrong session ID try again" will do this later
                 form = AuthenticationForm()
                 template_name = "webapp/splash.html"
                 return render(request, template_name, {'form': form})
             else:
-                #Submitted session ID is correct, set the current browser session and redirect to home
+                # Submitted session ID is correct, set the current browser session and redirect to home
                 request.session['loggedin'] = 1
                 print("In database")
                 template = loader.get_template("webapp/home.html")
@@ -52,30 +53,52 @@ def home(request):
             print("form is not valid")
 
 
-
-
-
 def agenda(request):
-	template = loader.get_template("webapp/agenda.html")
-	return HttpResponse(template.render())
+    template = loader.get_template("webapp/agenda.html")
+    return HttpResponse(template.render())
 
 
 def booths(request):
-	template = loader.get_template("webapp/booths.html")
-	return HttpResponse(template.render())
+    template = loader.get_template("webapp/booths.html")
+    return HttpResponse(template.render())
 
 
 def icebreaker(request):
-	template = loader.get_template("webapp/icebreaker.html")
-	return HttpResponse(template.render())
+    template = loader.get_template("webapp/icebreaker.html")
+    return HttpResponse(template.render())
+
+
+def metaverse(request):
+    template = loader.get_template("webapp/metaverse.html")
+    return HttpResponse(template.render())
+
+
+def team_programming(request):
+    template = loader.get_template("webapp/team_programming.html")
+    return HttpResponse(template.render())
+
+
+def team_logistics(request):
+    template = loader.get_template("webapp/team_logistics.html")
+    return HttpResponse(template.render())
+
+
+def team_agenda(request):
+    template = loader.get_template("webapp/team_agenda.html")
+    return HttpResponse(template.render())
+
+
+def team_graphics(request):
+    template = loader.get_template("webapp/team_graphics.html")
+    return HttpResponse(template.render())
 
 
 def splash(request):
     if request.method == 'GET':
         template = loader.get_template("webapp/splash.html")
         return HttpResponse(template.render())
-        
-    elif(request.method == "POST"):
+
+    elif (request.method == "POST"):
         form = AdminLoginForm(data=request.POST)
         print("This is a post request in the authentication page")
         if form.is_valid():
@@ -94,6 +117,3 @@ def splash(request):
                 print("Not in database")
             else:
                 print("In database")
-
-
-
