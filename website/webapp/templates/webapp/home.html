@@ -22,12 +22,12 @@
 <!-- Navigation bar -->
 <div class="sidenav" id="mySidenav">
     <div class="sidenavBlock">
-        <a href="javascript:void(0);" class="closeButton"
-           onclick="closeNav()">&times;</a>
+        <a href="javascript:void(0);" class="closeButton" onclick="closeNav()">&times;</a>
         <div class="divider"></div>
         <div class="divider"></div>
         <div class="divider"></div>
         <h1 class="sidenavBlock">IT PDP Conference 2018</h1>
+        <h1 id="slogan">"Adapting New Technology"</h1>
     </div>
 
     <div class="sidenavBlock">
@@ -64,7 +64,7 @@
         <div class="divider"></div>
     </div>
 
-    <div class="sidenavBlock">
+    <div class="sidenavBlock" style="padding-bottom: 0px">
         <h1 class="sidenavBlockTitle">Behind The Scenes</h1>
 
         <img class="nounicons" src="../../static/images/icons/noun_team_agenda.svg" alt="noun">
@@ -85,17 +85,18 @@
 
         <img class="nounicons" src="../../static/images/icons/noun_about.svg" alt="noun">
         <a href="">About</a>
-        <div class="divider"></div>
+
+        <img id="logo_sidebar" src="../../static/images/logo_pointing.png" alt="noun">
     </div>
+
 </div>
 
-<!-- Top bar & open button -->
+<!-- Top bar -->
 <div id="topBar">
-    <span id="openButton" style="cursor:pointer" onclick="openNav()">
+    <span id="openButton" onclick="openNav()">
         <img id="burgerIcon" src="../../static/images/icons/noun_hamburger.svg" alt="menu">
     </span>
 </div>
-
 
 <!--Main content of the page-->
 <div id="main">
@@ -104,20 +105,21 @@
         <img id="logo" src="../../static/images/logo_animated.gif" alt="Northport"/>
 
         <!-- Title -->
-        <h1>2018<br/>IT PDP<br/>Conference</h1>
+        <h1>2018<br/>IT <b>PDP</b><br/>Conference</h1>
 
         <!-- Text -->
         <p>
             A very warm welcome to the much awaited 2018 IT PDP Conference!
         </p>
         <p>
-            Every year we host a conference revolving around a certain theme. This year, our theme will be Adapting
-        New Technology
+            Every year we host a conference revolving around a certain theme.
+            This year, our theme will be <b><i>Adapting New Technology</i></b>.
         </p>
         <p>
-            We have prepared a range of activities, lively presentations, numerous booths, and even an exciting
-            Augmented Reality game! Please have a look at our agenda to see the upcoming events and enjoy the rest of
-            the day!
+            We have prepared a range of activities: an icebreaker,
+            popular speakers, various booths, and even an exciting augmented
+            reality game! Please have a look at our agenda to see the upcoming
+            schedule and enjoy the rest of the day!
         </p>
     </section>
 </div>

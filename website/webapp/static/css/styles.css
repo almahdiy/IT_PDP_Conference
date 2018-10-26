@@ -3,8 +3,12 @@ ColorPalette {
     color: #ff7b0f, #ffaa0c, #4e9894, #5e7777, #efe1b8, #77918E;
 }
 
+/**********************************GLOBAL CSS**********************************/
+
 html {
     height: 500px;
+    font-family: 'Lora', sans-serif;
+    width: 100%;
 }
 
 body {
@@ -30,10 +34,6 @@ h1 {
     text-align: center;
     line-height: 125%;
     margin-bottom: 2.5%;
-}
-
-h1.splash_title {
-    font-size: 50px;
 }
 
 h1.subtitle{
@@ -98,6 +98,11 @@ h1.sidenavBlock {
     width: 100%;
 }
 
+h1#slogan {
+    margin: 0px;
+    font-size: 16px;
+}
+
 div.sidenavBlock {
     border-bottom: 2px #ff7b0f solid;
     color: #E4E4BE;
@@ -138,9 +143,11 @@ div.sidenavBlock {
 }
 
 #logo_sidebar {
-    width: 200px;
-    float: right;
-    padding: 0px 0px 0px 0px;
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    padding-right: 20px;
+    vertical-align: middle;
 }
 
 img.nounicons {
@@ -150,7 +157,90 @@ img.nounicons {
     vertical-align: middle;
 }
 
+/*********************************TOP BAR CSS**********************************/
+
+#topBar {
+    background-color: #77918E;
+    color: #E4E4BE;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+#openButton {
+    display: block;
+    cursor: pointer;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #77918E;
+    text-align: center;
+}
+
+.topnav a {
+    display: block;
+    color: #E4E4BE;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+/* The hamburger menu that displays the navbar */
+#burgerIcon {
+    width: 35px;
+}
+
+/* When navbar menu is not expanded */
+@media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+
+    /*:not(#toplink)*/
+    .topnav a.icon {
+        float: left;
+        display: inline;
+    }
+}
+
+/* When navbar menu is expanded */
+@media screen and (max-width: 600px) {
+    .topnav.responsive {
+        position: relative;
+    }
+
+    .topnav.responsive .icon {
+        float: left;
+    }
+
+    .topnav.responsive a {
+        float: none;
+        display: block;
+    }
+}
+
 /******************************************************************************/
+
+h1.splash_title {
+    font-size: 50px;
+}
+
+
+#main {
+    transition: margin-left .5s;
+}
 
 #logo {
     /* size of the image; height scales alone somehow */
@@ -192,20 +282,6 @@ img.nounicons {
     margin-right: auto;
 }
 
-/* .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-} */
-
-svg {
-    width: 30px;
-    height: 30px;
-    fill: #E4E4BE;
-    stroke: #E4E4BE;
-    display: inline;
-}
-
 img.badge {
     display: inline-block;
     margin-left: auto;
@@ -221,114 +297,9 @@ div#images a{
     text-decoration: none;
 }
 
-#main {
-    transition: margin-left .5s;
-}
-
-#topBar {
-    background-color: #77918E;
-    color: #E4E4BE;
-    text-align: left;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-}
-
-#openButton {
-    display: block;
-
-}
-
-#currentPage {
-    display: inline;
-}
-
-.topnav {
-    overflow: hidden;
-    background-color: #77918E;
-    text-align: center;
-}
-
-.topnav a {
-    display: block;
-    color: #E4E4BE;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-/* .topnav a:hover {
-  background-color: #ddd;
-  color: black;
-} */
-
-.active {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.topnav .icon {
-    display: none;
-}
-
-/* Hamburger menu: BEGIN */
-.bar1, .bar2, .bar3 {
-    width: 15px;
-    height: 2px;
-    background-color: #E4E4BE;
-    margin: 3px 0;
-    transition: 0.4s;
-}
-
-/* Hamburger menu: END */
-
-/* When navbar menu is not expanded */
-@media screen and (max-width: 600px) {
-    .topnav a:not(:first-child) {
-        display: none;
-    }
-
-    /*:not(#toplink)*/
-    .topnav a.icon {
-        float: left;
-        display: inline;
-    }
-}
-
-/* When navbar menu is expanded */
-@media screen and (max-width: 600px) {
-    .topnav.responsive {
-        position: relative;
-    }
-
-    .topnav.responsive .icon {
-        float: left;
-    }
-
-    .topnav.responsive a {
-        float: none;
-        display: block;
-    }
-
-}
-
-/* The hamburger menu that displays the navbar */
-#burgerIcon {
-    width: 35px;
-}
-
-/* Splash Menu Styling */
-
 /*
-Basic input element using psuedo classes
+Basic input element using pseudo-classes
 */
-
-html {
-    font-family: 'Lora', sans-serif;
-    width: 100%;
-}
-
 
 input,
 span,
@@ -623,3 +594,9 @@ code {
     background-color: #9AA3AC;
     padding: 0 8px;
 }
+
+/* .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+} */
