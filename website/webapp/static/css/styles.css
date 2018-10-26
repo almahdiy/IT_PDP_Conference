@@ -73,7 +73,7 @@ ol {
     height: 100%;
     width: 250px;
     position: fixed;
-    z-index: 1;
+    z-index: 10000;
     top: 0;
     left: 0;
     right: 50%;
@@ -470,69 +470,51 @@ div#splash_background {
 
 /* Ice breaker specific styling */
 
-/* The entire rectangle */
-.inputGroup {
-    background-color: #77918E;
-    display: block;
+  /* The entire rectangle */
+  .inputGroup {
+    display: inline-block;
+    background-color: #77918E; 
+    vertical-align: middle;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
     /* margin: 10px 0;
     position: relative; */
 }
 
 /* Text in the unselected options */
 .inputGroup label {
-    margin: 20px 0px 0 0;
-    /* padding: 12px 30px; */
-    width: 100%;
+    padding: 12px 70px 12px 90px;
+    width: 80%;
+    white-space: normal;
+    height: 100%;
     display: block;
     text-align: left;
     color: #efe1b8;
     cursor: pointer;
     position: relative;
     /* height of the ::before element has to be the same */
-    height: 50px;
     z-index: 2;
     transition: color 200ms ease-in;
     overflow: hidden;
+    
 }
 
-/* What comes right after the label */
-/* .inputGroup label:after {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  content: "where does content go?";
-  background-color: #5e7777;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) scale3d(1, 1, 1);
-  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0;
-  z-index: -1;
-} */
 
 /* The circular button, both selected & unselected */
 .inputGroup label:before {
      /*margin: 20px 0px 0 0; */
     width: 64px;
-    height: 50px;
+    height: inherit;
     content: "";
     border-right: 6px solid #ffaa0c;
     background-color: #ff7b0f;
-    /* This is the check mark 
-    background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E "); */
     background-repeat: no-repeat;
-    /* background-position: 2px 3px; */
-    /* This makes it a circule
-    border-radius: 50%; */
     z-index: 2;
-    position: relative;
-    /* "top" is half the height */
-    top: 25px;
-    /* inline-block allows you to set the width and height of the element*/
-    display: inline-block;
-    /* right: 30px; */
-    /* top: 50%; */
+    position: absolute;
+    bottom:0;
+    left:0;
+    top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
     transition: all 200ms ease-in;
