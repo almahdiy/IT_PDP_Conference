@@ -38,14 +38,17 @@ Key Features
 
 Authors
 -------
-- Programming Team (Yaqeen Mahdi)
-- Graphics Team (artwork assets)
+- Yaqeen Mahdi
+- Othman Alikhan
+- See About page for more details
 
 
 TODO
 ----
+- Update the agenda with the mobile friendly infographic
 - Add rectangular instructions to Metaverse page
 - Develop the 'Committee' page that contains theme and hierarchy
+- Ensure everyone's name is correct (Ask Aqeel for corrected name list)
 
 
 Bugs

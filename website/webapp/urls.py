@@ -15,4 +15,5 @@ urlpatterns = [
     url(r'^team_logistics$', views.team_logistics, name="team_logistics"),
     url(r'^team_agenda$', views.team_agenda, name="team_agenda"),
     url(r'^team_graphics$', views.team_graphics, name="team_graphics"),
+    url(r'^about$', views.about, name="about"),
 ]
