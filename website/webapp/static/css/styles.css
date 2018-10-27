@@ -14,13 +14,13 @@ html {
 body {
     background-color: #E4E4BE;
     /* top right down left*/
-    margin: 0px 0px 50px 0px;
+    margin: 0 0 50px 0;
     transition: background-color .5s;
 }
 
 section {
     /* top right down left*/
-    margin: 25px 25px 0px 25px;
+    margin: 25px 25px 0 25px;
     /* font-family: 'Raleway', sans-serif; */
     /* font-family: 'Chakra Petch', sans-serif; */
     font-family: 'Teko', sans-serif;
@@ -71,7 +71,7 @@ ol {
 
 .sidenav {
     height: 100%;
-    width: 0px;
+    width: 0;
     position: fixed;
     z-index: 10000;
     top: 0;
@@ -80,7 +80,7 @@ ol {
     background-color: #77918E;
     overflow-x: hidden;
     transition: 0.3s;
-    padding-top: 0px;
+    padding-top: 0;
     border-right: 2px #ff7b0f solid;
     white-space: nowrap;
 }
@@ -99,7 +99,7 @@ h1.sidenavBlock {
 }
 
 h1#slogan {
-    margin: 0px;
+    margin: 0;
     font-size: 16px;
 }
 
@@ -108,7 +108,7 @@ div.sidenavBlock {
     color: #E4E4BE;
     font-size: 12px;
     Text-align: left;
-    padding: 5px 0px 20px 6px;
+    padding: 5px 0 20px 6px;
 }
 
 .sidenav a {
@@ -131,9 +131,9 @@ div.sidenavBlock {
     position: absolute;
     top: 0;
     right: 5px;
-    padding-top: 0px;
-    padding-left: 0px;
-    margin-left: 0px;
+    padding-top: 0;
+    padding-left: 0;
+    margin-left: 0;
     font-size: 36px;
 }
 
@@ -162,44 +162,26 @@ img.nounicons {
 #topBar {
     background-color: #77918E;
     color: #E4E4BE;
-    text-align: left;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     padding-left: 10px;
 }
 
 #openButton {
-    display: block;
+    width: 30px;
+    display: inline-block;
+    padding: 10px 10px 10px 10px;
     cursor: pointer;
+    vertical-align: middle;
 }
 
-.topnav {
-    overflow: hidden;
-    background-color: #77918E;
-    text-align: center;
-}
-
-.topnav a {
-    display: block;
-    color: #E4E4BE;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-.active {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.topnav .icon {
-    display: none;
-}
-
-/* The hamburger menu that displays the navbar */
-#burgerIcon {
-    width: 35px;
+h2.topnav {
+    font-size: 18px;
+    font-family: 'Teko', sans-serif;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    margin: 0 0 0 0;
 }
 
 /* When navbar menu is not expanded */
@@ -351,7 +333,7 @@ textarea.question + label {
     border-top: 1px solid #ff7b0f;
     -webkit-transition: width 0.4s ease;
     transition: width 0.4s ease;
-    height: 0px;
+    height: 0;
 }
 
 input.question:focus + label,
@@ -403,7 +385,7 @@ textarea.question + label > span {
     color: #E4E4BE;
     font-size: 20px;
     top: -66px;
-    left: 0px;
+    left: 0;
     z-index: -1;
     -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
     transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
@@ -503,7 +485,7 @@ div#splash_background {
 
 /* The circular button, both selected & unselected */
 .inputGroup label:before {
-     /*margin: 20px 0px 0 0; */
+     /*margin: 20px 0 0 0; */
     width: 64px;
     height: inherit;
     content: "";
@@ -519,7 +501,7 @@ div#splash_background {
     cursor: pointer;
     transition: all 200ms ease-in;
     /* padding: 0 10px; */
-    margin: 0px 10px 0px 0px;
+    margin: 0 10px 0 0;
 }
 
 .inputGroup input:checked ~ label {

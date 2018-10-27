@@ -44,10 +44,8 @@ Authors
 
 TODO
 ----
-- Add navigation bar to Metaverse page
+- Add the name of the page at the middle of the `topbar` (hard)
 - Add rectangular instructions to Metaverse page
-- Add navigation bar to Team Programming page
-- Add navigation bar to Team Logistics page
 - Develop the 'Committee' page that contains theme and hierarchy
 
 
