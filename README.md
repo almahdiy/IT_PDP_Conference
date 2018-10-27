@@ -45,12 +45,14 @@ Authors
 
 TODO
 ----
-- Update the agenda with the mobile friendly infographic
-- Add rectangular instructions to Metaverse page
-- Develop the 'Committee' page that contains theme and hierarchy
-- Ensure everyone's name is correct (Ask Aqeel for corrected name list)
 - Get a domain name
 - Get an SSL certificate
+- Develop the 'Committee' page that contains theme and hierarchy
+- Add rectangular instructions to Metaverse page
+
+- Ensure everyone's name is correct (Ask Aqeel for corrected name list)
+- Update the agenda with the mobile friendly infographic
+- Improve security on production server
 
 
 Bugs
