@@ -101,6 +101,7 @@ h1.sidenavBlock {
 h1#slogan {
     margin: 0;
     font-size: 16px;
+    font-weight: 400;
 }
 
 div.sidenavBlock {
@@ -178,6 +179,7 @@ img.nounicons {
 h2.topnav {
     font-size: 18px;
     font-family: 'Teko', sans-serif;
+    font-weight: 400;
     position: absolute;
     right: 10px;
     top: 20px;
