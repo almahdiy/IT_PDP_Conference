@@ -44,13 +44,10 @@ Authors
 
 TODO
 ----
-- Add the name of the page at the middle of the `topbar` (hard)
 - Add rectangular instructions to Metaverse page
 - Develop the 'Committee' page that contains theme and hierarchy
 
 
 Bugs
 ----
-- File linking does not contain `.html` suffix (code smell?)
-- Navigation bar scales `sidenavBlock` in y-axis a bit (shifts text horizontal)
-- Re-add committee logo at the bottom of navigation bar
+- None
