@@ -49,6 +49,8 @@ TODO
 - Add rectangular instructions to Metaverse page
 - Develop the 'Committee' page that contains theme and hierarchy
 - Ensure everyone's name is correct (Ask Aqeel for corrected name list)
+- Get a domain name
+- Get an SSL certificate
 
 
 Bugs
