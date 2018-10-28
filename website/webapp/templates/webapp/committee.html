@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Hello World!</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- External link (relative) to your main stylesheet -->
+    <link rel="stylesheet" href="../../static/css/styles.css">
+
+    <!-- External link to Google fonts to be used on this page -->
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch|Poiret+One|Rajdhani|Raleway|Teko" rel="stylesheet">
+
+    <!-- External link (relative) to your javascript file -->
+    <script src="../../static/js/index.js"></script>
+</head>
+
+<body>
+{% include './components/navbar.html' %}
+{% include './components/topbar_committee.html' %}
+
+<div id="main">
+    <section>
+        <h1 class="subtitle">Committee</h1>
+        <p>
+            The committee consists of a total 32 members.
+        </p>
+        <p>
+            At the head of the committee is the chairman with two vice-chairmen. Each
+            vice-chairman is responsible for two groups.
+        </p>
+        <p>
+            Each group itself contains a leader and a co-leader. Please see below the
+            groups of the committee.
+        </p>
+
+        <img id="agenda" src="../../static/images/committee_structure.svg"/>
+
+    </section>
+
+</div>
+</body>
+</html>
