@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^splash$', views.splash, name="splash"),
     url(r'^icebreaker$', views.icebreaker, name="icebreaker"),
     url(r'^metaverse$', views.metaverse, name="metaverse"),
+    url(r'^committee$', views.committee, name="committee"),
     url(r'^team_programming$', views.team_programming, name="team_programming"),
     url(r'^team_logistics$', views.team_logistics, name="team_logistics"),
     url(r'^team_agenda$', views.team_agenda, name="team_agenda"),

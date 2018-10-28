@@ -72,6 +72,11 @@ def metaverse(request):
     return HttpResponse(template.render())
 
 
+def committee(request):
+    template = loader.get_template("webapp/committee.html")
+    return HttpResponse(template.render())
+
+
 def team_programming(request):
     template = loader.get_template("webapp/team_programming.html")
     return HttpResponse(template.render())
@@ -90,6 +95,7 @@ def team_agenda(request):
 def team_graphics(request):
     template = loader.get_template("webapp/team_graphics.html")
     return HttpResponse(template.render())
+
 
 def about(request):
     template = loader.get_template("webapp/about.html")
