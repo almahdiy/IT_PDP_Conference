@@ -41,6 +41,7 @@ h1.subtitle{
     font-family: 'Teko', sans-serif;
     letter-spacing: 1px;
     font-style: italic;
+    font-weight: 400;
     color: #ff7b0f;
 }
 
