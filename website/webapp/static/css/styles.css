@@ -1,6 +1,11 @@
 /* Just for reference */
 ColorPalette {
-    color: #ff7b0f, #ffaa0c, #4e9894, #5e7777, #efe1b8, #77918E;
+    color: #ff7b0f,
+           #ffaa0c,
+           #4e9894,
+           #5e7777,
+           #efe1b8,
+           #77918E;
 }
 
 /**********************************GLOBAL CSS**********************************/
@@ -68,6 +73,18 @@ ol, ul {
     text-align: justify;
 }
 
+#main {
+    transition: margin-left .5s;
+}
+
+#logo {
+    /* size of the image; height scales alone somehow */
+    width: 200px;
+    /* Following lines center the logo */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /******************************NAVIGATION BAR CSS******************************/
 
@@ -217,25 +234,13 @@ h2.topnav {
     }
 }
 
-/******************************************************************************/
+/*******************************SPLASH PAGE CSS********************************/
 
 h1.splash_title {
     font-size: 50px;
 }
 
-
-#main {
-    transition: margin-left .5s;
-}
-
-#logo {
-    /* size of the image; height scales alone somehow */
-    width: 200px;
-    /* Following lines center the logo */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
+/*******************************AGENDA PAGE CSS********************************/
 
 #agenda {
     /* size of the image; height scales alone somehow */
@@ -249,6 +254,8 @@ h1.splash_title {
     display: block;
     margin-top: 40px;
 }
+
+/*******************************BOOTHS PAGE CSS********************************/
 
 #booth_layout {
     /* size of the image; height scales alone somehow */
@@ -268,6 +275,8 @@ h1.splash_title {
     margin-right: auto;
 }
 
+/******************************METAVERSE PAGE CSS******************************/
+
 img.badge {
     display: inline-block;
     margin-left: auto;
@@ -283,9 +292,7 @@ div#images a{
     text-decoration: none;
 }
 
-/*
-Basic input element using pseudo-classes
-*/
+/****************** BASIC INPUT ELEMENT USING PSEUDO-CLASSES ******************/
 
 input,
 span,
