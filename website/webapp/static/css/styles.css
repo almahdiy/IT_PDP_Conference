@@ -62,11 +62,12 @@ p.credits {
     text-align: center;
 }
 
-ol {
+ol, ul {
     font-size: 18px;
     font-family: 'Rajdhani', sans-serif;
     text-align: justify;
 }
+
 
 /******************************NAVIGATION BAR CSS******************************/
 
