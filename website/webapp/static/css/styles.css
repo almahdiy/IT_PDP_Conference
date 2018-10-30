@@ -1,22 +1,31 @@
 /* Just for reference */
 ColorPalette {
-    color: #ff7b0f, #ffaa0c, #4e9894, #5e7777, #efe1b8, #77918E;
+    color: #ff7b0f,
+           #ffaa0c,
+           #4e9894,
+           #5e7777,
+           #efe1b8,
+           #77918E;
 }
+
+/**********************************GLOBAL CSS**********************************/
 
 html {
     height: 500px;
+    font-family: 'Lora', sans-serif;
+    width: 100%;
 }
 
 body {
     background-color: #E4E4BE;
     /* top right down left*/
-    margin: 0px 0px 50px 0px;
+    margin: 0 0 50px 0;
     transition: background-color .5s;
 }
 
 section {
     /* top right down left*/
-    margin: 25px 25px 0px 25px;
+    margin: 25px 25px 0 25px;
     /* font-family: 'Raleway', sans-serif; */
     /* font-family: 'Chakra Petch', sans-serif; */
     font-family: 'Teko', sans-serif;
@@ -32,15 +41,12 @@ h1 {
     margin-bottom: 2.5%;
 }
 
-h1.splash_title {
-    font-size: 50px;
-}
-
 h1.subtitle{
     font-size: 44px;
     font-family: 'Teko', sans-serif;
     letter-spacing: 1px;
     font-style: italic;
+    font-weight: 400;
     color: #ff7b0f;
 }
 
@@ -61,17 +67,30 @@ p.credits {
     text-align: center;
 }
 
-ol {
+ol, ul {
     font-size: 18px;
     font-family: 'Rajdhani', sans-serif;
     text-align: justify;
+}
+
+#main {
+    transition: margin-left .5s;
+}
+
+#logo {
+    /* size of the image; height scales alone somehow */
+    width: 200px;
+    /* Following lines center the logo */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /******************************NAVIGATION BAR CSS******************************/
 
 .sidenav {
     height: 100%;
-    width: 250px;
+    width: 0;
     position: fixed;
     z-index: 10000;
     top: 0;
@@ -80,7 +99,7 @@ ol {
     background-color: #77918E;
     overflow-x: hidden;
     transition: 0.3s;
-    padding-top: 0px;
+    padding-top: 0;
     border-right: 2px #ff7b0f solid;
     white-space: nowrap;
 }
@@ -98,12 +117,18 @@ h1.sidenavBlock {
     width: 100%;
 }
 
+h1#slogan {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+}
+
 div.sidenavBlock {
     border-bottom: 2px #ff7b0f solid;
     color: #E4E4BE;
     font-size: 12px;
     Text-align: left;
-    padding: 5px 0px 20px 6px;
+    padding: 5px 0 20px 6px;
 }
 
 .sidenav a {
@@ -126,9 +151,9 @@ div.sidenavBlock {
     position: absolute;
     top: 0;
     right: 5px;
-    padding-top: 0px;
-    padding-left: 0px;
-    margin-left: 0px;
+    padding-top: 0;
+    padding-left: 0;
+    margin-left: 0;
     font-size: 36px;
 }
 
@@ -138,9 +163,11 @@ div.sidenavBlock {
 }
 
 #logo_sidebar {
-    width: 200px;
-    float: right;
-    padding: 0px 0px 0px 0px;
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    padding-right: 20px;
+    vertical-align: middle;
 }
 
 img.nounicons {
@@ -150,138 +177,33 @@ img.nounicons {
     vertical-align: middle;
 }
 
-/******************************************************************************/
-
-#logo {
-    /* size of the image; height scales alone somehow */
-    width: 200px;
-    /* Following lines center the logo */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#agenda {
-    /* size of the image; height scales alone somehow */
-    width: 100%;
-
-    /*Size of the smallest device on the chrome dev tool. We should change it so that it is always
-    equal to the screen width, but this does the job for now. */
-    min-width: 320px;
-
-    /* Following lines center the agenda */
-    display: block;
-    margin-top: 40px;
-}
-
-#booth_layout {
-    /* size of the image; height scales alone somehow */
-    width: 80vw;
-    /* Following lines center the logo */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#booth_table {
-    /* size of the image; height scales alone somehow */
-    width: 80vw;
-    /* Following lines center the logo */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-} */
-
-svg {
-    width: 30px;
-    height: 30px;
-    fill: #E4E4BE;
-    stroke: #E4E4BE;
-    display: inline;
-}
-
-img.badge {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 35px;
-}
-
-div#images {
-    text-align: center;
-}
-
-div#images a{
-    text-decoration: none;
-}
-
-#main {
-    transition: margin-left .5s;
-}
+/*********************************TOP BAR CSS**********************************/
 
 #topBar {
     background-color: #77918E;
     color: #E4E4BE;
-    text-align: left;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     padding-left: 10px;
 }
 
 #openButton {
-    display: block;
-
+    width: 30px;
+    display: inline-block;
+    padding: 10px 10px 10px 10px;
+    cursor: pointer;
+    vertical-align: middle;
 }
 
-#currentPage {
-    display: inline;
+h2.topnav {
+    font-size: 18px;
+    font-family: 'Teko', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    margin: 0 0 0 0;
 }
-
-.topnav {
-    overflow: hidden;
-    background-color: #77918E;
-    text-align: center;
-}
-
-.topnav a {
-    display: block;
-    color: #E4E4BE;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-/* .topnav a:hover {
-  background-color: #ddd;
-  color: black;
-} */
-
-.active {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.topnav .icon {
-    display: none;
-}
-
-/* Hamburger menu: BEGIN */
-.bar1, .bar2, .bar3 {
-    width: 15px;
-    height: 2px;
-    background-color: #E4E4BE;
-    margin: 3px 0;
-    transition: 0.4s;
-}
-
-/* Hamburger menu: END */
 
 /* When navbar menu is not expanded */
 @media screen and (max-width: 600px) {
@@ -310,29 +232,71 @@ div#images a{
         float: none;
         display: block;
     }
-
 }
 
-/* The hamburger menu that displays the navbar */
-#burgerIcon {
-    width: 35px;
+/*******************************SPLASH PAGE CSS********************************/
+
+h1.splash_title {
+    font-size: 50px;
 }
 
-/* Splash Menu Styling */
+/*******************************AGENDA PAGE CSS********************************/
 
-/*
-Basic input element using psuedo classes
-*/
-
-html {
-    font-family: 'Lora', sans-serif;
+#agenda {
+    /* size of the image; height scales alone somehow */
     width: 100%;
+
+    /*Size of the smallest device on the chrome dev tool. We should change it so that it is always
+    equal to the screen width, but this does the job for now. */
+    min-width: 320px;
+
+    /* Following lines center the agenda */
+    display: block;
+    margin-top: 40px;
 }
 
+/*******************************BOOTHS PAGE CSS********************************/
+
+#booth_layout {
+    /* size of the image; height scales alone somehow */
+    width: 80vw;
+    /* Following lines center the logo */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#booth_table {
+    /* size of the image; height scales alone somehow */
+    width: 80vw;
+    /* Following lines center the logo */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/******************************METAVERSE PAGE CSS******************************/
+
+img.badge {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35px;
+}
+
+div#images {
+    text-align: center;
+}
+
+div#images a{
+    text-decoration: none;
+}
+
+/****************** BASIC INPUT ELEMENT USING PSEUDO-CLASSES ******************/
 
 input,
 span,
-    /* label, */
+     /*label,*/
 textarea {
     font-family: 'Ubuntu', sans-serif;
     display: block;
@@ -380,7 +344,7 @@ textarea.question + label {
     border-top: 1px solid #ff7b0f;
     -webkit-transition: width 0.4s ease;
     transition: width 0.4s ease;
-    height: 0px;
+    height: 0;
 }
 
 input.question:focus + label,
@@ -432,7 +396,7 @@ textarea.question + label > span {
     color: #E4E4BE;
     font-size: 20px;
     top: -66px;
-    left: 0px;
+    left: 0;
     z-index: -1;
     -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
     transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
@@ -532,7 +496,7 @@ div#splash_background {
 
 /* The circular button, both selected & unselected */
 .inputGroup label:before {
-     /*margin: 20px 0px 0 0; */
+     /*margin: 20px 0 0 0; */
     width: 64px;
     height: inherit;
     content: "";
@@ -548,7 +512,7 @@ div#splash_background {
     cursor: pointer;
     transition: all 200ms ease-in;
     /* padding: 0 10px; */
-    margin: 0px 10px 0px 0px;
+    margin: 0 10px 0 0;
 }
 
 .inputGroup input:checked ~ label {
@@ -605,3 +569,9 @@ code {
     background-color: #9AA3AC;
     padding: 0 8px;
 }
+
+/* .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+} */

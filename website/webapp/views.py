@@ -9,7 +9,6 @@ from .forms import AuthenticationForm
 API_URL = "http://127.0.0.1:8000/"
 
 
-# Create your views here.
 def home(request):
     if request.method == 'GET':
         current_user_id = str(request.session.get('loggedin', 0))
@@ -74,6 +73,11 @@ def metaverse(request):
     return HttpResponse(template.render())
 
 
+def committee(request):
+    template = loader.get_template("webapp/committee.html")
+    return HttpResponse(template.render())
+
+
 def team_programming(request):
     template = loader.get_template("webapp/team_programming.html")
     return HttpResponse(template.render())
@@ -91,6 +95,11 @@ def team_agenda(request):
 
 def team_graphics(request):
     template = loader.get_template("webapp/team_graphics.html")
+    return HttpResponse(template.render())
+
+
+def about(request):
+    template = loader.get_template("webapp/about.html")
     return HttpResponse(template.render())
 
 
