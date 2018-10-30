@@ -1,5 +1,5 @@
 import requests
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.template import loader
 
@@ -54,76 +54,120 @@ def home(request):
 
 
 def agenda(request):
-    template = loader.get_template("webapp/agenda.html")
-    return HttpResponse(template.render())
+    current_user_id = str(request.session.get('logged_user_id', 0))
+    if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
+        return HttpResponseRedirect("/../home")
+    else:
+        template = loader.get_template("webapp/agenda.html")
+        return HttpResponse(template.render())
 
 
 def booths(request):
-    template = loader.get_template("webapp/booths.html")
-    return HttpResponse(template.render())
+    current_user_id = str(request.session.get('logged_user_id', 0))
+    if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
+        return HttpResponseRedirect("/../home")
+    else:
+        template = loader.get_template("webapp/booths.html")
+        return HttpResponse(template.render())
 
 
 def icebreaker(request):
-    template = loader.get_template("webapp/icebreaker.html")
-    return HttpResponse(template.render())
+    current_user_id = str(request.session.get('logged_user_id', 0))
+    if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
+        return HttpResponseRedirect("/../home")
+    else:
+        template = loader.get_template("webapp/icebreaker.html")
+        return HttpResponse(template.render())
 
 
 def metaverse(request):
-    template = loader.get_template("webapp/metaverse.html")
-    return HttpResponse(template.render())
+    current_user_id = str(request.session.get('logged_user_id', 0))
+    if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
+        return HttpResponseRedirect("/../home")
+    else:
+        template = loader.get_template("webapp/metaverse.html")
+        return HttpResponse(template.render())
 
 
 def committee(request):
-    template = loader.get_template("webapp/committee.html")
-    return HttpResponse(template.render())
+    current_user_id = str(request.session.get('logged_user_id', 0))
+    if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
+        return HttpResponseRedirect("/../home")
+    else:
+        template = loader.get_template("webapp/committee.html")
+        return HttpResponse(template.render())
 
 
 def team_programming(request):
-    template = loader.get_template("webapp/team_programming.html")
-    return HttpResponse(template.render())
+    current_user_id = str(request.session.get('logged_user_id', 0))
+    if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
+        return HttpResponseRedirect("/../home")
+    else:
+        template = loader.get_template("webapp/team_programming.html")
+        return HttpResponse(template.render())
 
 
 def team_logistics(request):
-    template = loader.get_template("webapp/team_logistics.html")
-    return HttpResponse(template.render())
+    current_user_id = str(request.session.get('logged_user_id', 0))
+    if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
+        return HttpResponseRedirect("/../home")
+    else:
+        template = loader.get_template("webapp/team_logistics.html")
+        return HttpResponse(template.render())
 
 
 def team_agenda(request):
-    template = loader.get_template("webapp/team_agenda.html")
-    return HttpResponse(template.render())
+    current_user_id = str(request.session.get('logged_user_id', 0))
+    if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
+        return HttpResponseRedirect("/../home")
+    else:
+        template = loader.get_template("webapp/team_agenda.html")
+        return HttpResponse(template.render())
 
 
 def team_graphics(request):
-    template = loader.get_template("webapp/team_graphics.html")
-    return HttpResponse(template.render())
+    current_user_id = str(request.session.get('logged_user_id', 0))
+    if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
+        return HttpResponseRedirect("/../home")
+    else:
+        template = loader.get_template("webapp/team_graphics.html")
+        return HttpResponse(template.render())
 
 
 def about(request):
-    template = loader.get_template("webapp/about.html")
-    return HttpResponse(template.render())
+    current_user_id = str(request.session.get('logged_user_id', 0))
+    if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
+        return HttpResponseRedirect("/../home")
+    else:
+        template = loader.get_template("webapp/about.html")
+        return HttpResponse(template.render())
 
 
 def splash(request):
-    if request.method == 'GET':
-        template = loader.get_template("webapp/splash.html")
-        return HttpResponse(template.render())
+    current_user_id = str(request.session.get('logged_user_id', 0))
+    if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
+        return HttpResponseRedirect("/../home")
+    else:
+        if request.method == 'GET':
+            template = loader.get_template("webapp/splash.html")
+            return HttpResponse(template.render())
 
-    elif (request.method == "POST"):
-        form = AdminLoginForm(data=request.POST)
-        print("This is a post request in the authentication page")
-        if form.is_valid():
-            print("form is valid")
-            # Creates an object from the form. Doesn't save it though!
-            obj = form.save(commit=False)
+        elif (request.method == "POST"):
+            form = AdminLoginForm(data=request.POST)
+            print("This is a post request in the authentication page")
+            if form.is_valid():
+                print("form is valid")
+                # Creates an object from the form. Doesn't save it though!
+                obj = form.save(commit=False)
 
-            # Getting data that is formatted properly so we can pass it to the API/database
-            sessionID = form.cleaned_data['sessionID']
+                # Getting data that is formatted properly so we can pass it to the API/database
+                sessionID = form.cleaned_data['sessionID']
 
-            dic = {"sessionID": sessionID}
+                dic = {"sessionID": sessionID}
 
-            r = requests.post(API_URL + 'authenticate/', data=dic)
-            print("test")
-            if (len(r.text) == 0):  # None was returned
-                print("Not in database")
-            else:
-                print("In database")
+                r = requests.post(API_URL + 'authenticate/', data=dic)
+                print("test")
+                if (len(r.text) == 0):  # None was returned
+                    print("Not in database")
+                else:
+                    print("In database")
