@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^options/$', views.MCQOptionList.as_view()),
     url(r'^options/(?P<pk>[0-9]+)$', views.MCQOptionDetail.as_view()),
     url(r'^mcqsoptions/(?P<pk>[0-9]+)/$', views.get_MCQ_options),
+    url(r'^authenticate/$', views.authenticate),
 
 ]
