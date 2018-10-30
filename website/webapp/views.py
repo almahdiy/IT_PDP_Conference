@@ -20,6 +20,7 @@ def home(request):
             return render(request, template_name, {'form': form})
         else:
             template = loader.get_template("webapp/home.html")
+            request.session.set_expiry(5)
             return HttpResponse(template.render())
 
     elif request.method == 'POST':
@@ -38,14 +39,14 @@ def home(request):
             r = requests.post(API_URL + 'authenticate/', data=dic)
             print(r.text)
             if (r.text == "false"):  # None was returned
-                print(
-                    "wrong session ID")  # need to display an error message e.g. "wrong session ID try again" will do this later
+                print("wrong session ID")  # need to display an error message e.g. "wrong session ID try again" will do this later
                 form = AuthenticationForm()
                 template_name = "webapp/splash.html"
                 return render(request, template_name, {'form': form})
             else:
                 # Submitted session ID is correct, set the current browser session and redirect to home
                 request.session['loggedin'] = 1
+                request.session.set_expiry(5)
                 print("In database")
                 template = loader.get_template("webapp/home.html")
             return HttpResponse(template.render())
