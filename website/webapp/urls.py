@@ -6,7 +6,6 @@ from . import views     # Relative importing
 urlpatterns = [
     url(r'^$|^home$', views.home, name="home"),     # Default homepage; they didn't request anything
     url(r'^agenda$', views.agenda, name="agenda"),
-    url(r'^agenda$', views.agenda, name="agenda"),
     url(r'^booths$', views.booths, name="booths"),
     #url(r'^splash$', views.splash, name="splash"),
     url(r'^icebreaker$', views.icebreaker, name="icebreaker"),

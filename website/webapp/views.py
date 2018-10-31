@@ -54,7 +54,7 @@ def home(request):
 
 
 def agenda(request):
-    current_user_id = str(request.session.get('logged_user_id', 0))
+    current_user_id = str(request.session.get('loggedin', 0))
     if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
         return HttpResponseRedirect("/../home")
     else:
@@ -63,7 +63,7 @@ def agenda(request):
 
 
 def booths(request):
-    current_user_id = str(request.session.get('logged_user_id', 0))
+    current_user_id = str(request.session.get('loggedin', 0))
     if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
         return HttpResponseRedirect("/../home")
     else:
@@ -72,7 +72,7 @@ def booths(request):
 
 
 def icebreaker(request):
-    current_user_id = str(request.session.get('logged_user_id', 0))
+    current_user_id = str(request.session.get('loggedin', 0))
     if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
         return HttpResponseRedirect("/../home")
     else:
@@ -81,7 +81,7 @@ def icebreaker(request):
 
 
 def metaverse(request):
-    current_user_id = str(request.session.get('logged_user_id', 0))
+    current_user_id = str(request.session.get('loggedin', 0))
     if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
         return HttpResponseRedirect("/../home")
     else:
@@ -90,7 +90,7 @@ def metaverse(request):
 
 
 def committee(request):
-    current_user_id = str(request.session.get('logged_user_id', 0))
+    current_user_id = str(request.session.get('loggedin', 0))
     if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
         return HttpResponseRedirect("/../home")
     else:
@@ -99,7 +99,7 @@ def committee(request):
 
 
 def team_programming(request):
-    current_user_id = str(request.session.get('logged_user_id', 0))
+    current_user_id = str(request.session.get('loggedin', 0))
     if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
         return HttpResponseRedirect("/../home")
     else:
@@ -108,7 +108,7 @@ def team_programming(request):
 
 
 def team_logistics(request):
-    current_user_id = str(request.session.get('logged_user_id', 0))
+    current_user_id = str(request.session.get('loggedin', 0))
     if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
         return HttpResponseRedirect("/../home")
     else:
@@ -117,7 +117,7 @@ def team_logistics(request):
 
 
 def team_agenda(request):
-    current_user_id = str(request.session.get('logged_user_id', 0))
+    current_user_id = str(request.session.get('loggedin', 0))
     if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
         return HttpResponseRedirect("/../home")
     else:
@@ -126,7 +126,7 @@ def team_agenda(request):
 
 
 def team_graphics(request):
-    current_user_id = str(request.session.get('logged_user_id', 0))
+    current_user_id = str(request.session.get('loggedin', 0))
     if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
         return HttpResponseRedirect("/../home")
     else:
@@ -135,7 +135,7 @@ def team_graphics(request):
 
 
 def about(request):
-    current_user_id = str(request.session.get('logged_user_id', 0))
+    current_user_id = str(request.session.get('loggedin', 0))
     if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
         return HttpResponseRedirect("/../home")
     else:
@@ -144,7 +144,7 @@ def about(request):
 
 
 def splash(request):
-    current_user_id = str(request.session.get('logged_user_id', 0))
+    current_user_id = str(request.session.get('loggedin', 0))
     if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
         return HttpResponseRedirect("/../home")
     else:
