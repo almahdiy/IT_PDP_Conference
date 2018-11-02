@@ -110,16 +110,16 @@ def QA(request):
         r = requests.get(API_URL + "questions/")
         # I am trying to store the json in a string variable
         s = json.dumps(r.json(), indent=4)
-        print(r.json())
+        #print(r.json())
         list_of_questions = r.json()
-        print(list_of_questions)
+        #print(list_of_questions)
         # r.json() returns a list of dictionaries, where every dictionary represents an object
         context = {
             'questions': list_of_questions,
         }
 
         return HttpResponse(template.render(context, request))
-    return HttpResponseRedirect('FAQ')
+    return HttpResponseRedirect('QA')
 
 
 @authenticate
@@ -159,6 +159,7 @@ def about(request):
 
 
 def create_question(request):
+    print("In create_qustion\n\n")
     # print("TEST")
     # print(request.POST)
     form = NewQuestionForm(data=request.POST)
@@ -169,7 +170,7 @@ def create_question(request):
         qa = form.save(commit=False)
         # Getting data that is formatted properly so we can pass it to the API/database
         question = form.cleaned_data['body']
-
+        print("Create_question is called")
         # This gets you the stuff.. Now we need to put them in a json file and send them to the API
         dic = {"body": question}
         # iles = {"image": open(request.FILES['myfile'], 'rb')}

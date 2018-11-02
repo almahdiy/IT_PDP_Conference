@@ -9,4 +9,4 @@ class Authentication(models.Model):
 
 #Used in the Q&A page - New question form
 class Question(models.Model):
-	body = models.TextField(default='')
+	body = models.CharField(max_length=1000)
