@@ -103,6 +103,11 @@ def icebreaker(request):
 
 
 @authenticate
+def QA(request):
+    return respondGeneric(request, "webapp/q&a.html")
+
+
+@authenticate
 def metaverse(request):
     return respondGeneric(request, "webapp/metaverse.html")
 
