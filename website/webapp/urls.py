@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^icebreaker$', views.icebreaker, name="icebreaker"),
     url(r'^QA$', views.QA, name="QA"),
     url(r'^create_question$', views.create_question, name="create_question"),
+    url(r'^question_voting$', views.question_voting, name="question_voting"),
     url(r'^metaverse$', views.metaverse, name="metaverse"),
     url(r'^committee$', views.committee, name="committee"),
     url(r'^team_programming$', views.team_programming, name="team_programming"),

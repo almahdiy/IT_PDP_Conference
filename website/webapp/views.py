@@ -178,6 +178,18 @@ def create_question(request):
         r = requests.post(API_URL + 'questions/', data=dic)
     return HttpResponseRedirect('QA')
 
+
+def question_voting(request):
+    #IDs of questions user has voted for
+    print("\n\n\n\n" + str(dict(request.POST)["checkbox"]))
+    votes = [x[:-1] for x in dict(request.POST)["checkbox"]]
+    print(votes)
+    print("fine here?")
+    message = {"votes" : votes}
+    r = requests.post(API_URL + 'vote/', data=message)
+    return HttpResponseRedirect('QA')
+    
+
 # def splash(request):
 #     current_user_id = str(request.session.get('loggedin', 0))
 #     if (current_user_id == NOT_LOGGED_IN):
