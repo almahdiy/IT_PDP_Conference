@@ -19,7 +19,7 @@
     <!-- Used to refactor navigation bar -->
 </head>
 
-<body>
+<body onload="process()">
 {% include './components/navbar.html' %}
 {% include './components/topbar_q&a.html' %}
 
@@ -31,8 +31,12 @@
         {% csrf_token %}
         {% for question in questions %}
         <div class="inputGroup">
-            <input id={{question.id}} name="checkbox" type="checkbox" value={{question.id}}/>
-            <label for={{question.id}}>{{question.body |linebreaks}} </label>
+            <input id={{question.id}} name="checkbox" type="checkbox" value={{question.id}}> 
+            <label for={{question.id}}>{{question.body |linebreaks}} 
+                <!-- Tag for teh AJAX part -->
+                <p id={{question.ajaxId}} value={{question.ajaxId}}>Test</p> 
+             </label>
+            <!-- <label for={{question.id}}>{{question.body |linebreaks}} Votes: {{question.votes |linebreaks}}</p> </label> -->
         </div>
         <br><br>
         {% endfor %}

@@ -1,8 +1,12 @@
 import requests
+from django.core import serializers
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.template import loader
+from rest_framework.response import Response
 import json
+
+
 
 from .forms import AuthenticationForm, NewQuestionForm
 
@@ -42,7 +46,7 @@ def home(request):
             return render(request, template_name, {'form': form})
         else:
             template = loader.get_template("webapp/home.html")
-            request.session.set_expiry(600)
+            #request.session.set_expiry(600)
             return HttpResponse(template.render())
 
     elif request.method == 'POST':
@@ -110,9 +114,12 @@ def QA(request):
         r = requests.get(API_URL + "questions/")
         # I am trying to store the json in a string variable
         s = json.dumps(r.json(), indent=4)
-        #print(r.json())
         list_of_questions = r.json()
-        #print(list_of_questions)
+        for question in list_of_questions:
+            question["ajaxId"] = "ajaxId" + str(question["id"])
+
+
+        print(list_of_questions)
         # r.json() returns a list of dictionaries, where every dictionary represents an object
         context = {
             'questions': list_of_questions,
@@ -218,3 +225,11 @@ def question_voting(request):
 #                     print("Not in database")
 #                 else:
 #                     print("In database")
+
+
+def vote_count_ajax(request, pk):
+    # echo in PHP.. I'm going to try returning concatinated string and see if that works...
+    if request.method == 'GET':
+        r = requests.get(API_URL + "vote_count_ajax/" + str(pk))
+        return HttpResponse(r, content_type="application/xml")
+

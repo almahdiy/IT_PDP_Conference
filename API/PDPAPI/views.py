@@ -1,8 +1,9 @@
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
+from django.core import serializers
 
 from .models import Question, Authentication, MCQ, MCQOption
 from .serializers import QuestionSerializer, AuthenticationSerializer, MCQSerializer, MCQOptionSerializer
@@ -181,3 +182,29 @@ def get_MCQ_options(request, pk):
         #SELECT option FROM McqOption WHERE MCQ_id=pk;
         q = MCQOption.objects.all().filter(MCQ_id=pk)
         return Response(MCQOptionSerializer(q, many=True).data)
+
+
+@api_view(['POST'])
+def vote(request):
+    votes = [int(x) for x in dict(request.data)["votes"]]
+    print(votes)
+    for i in votes:
+        question = Question.objects.get(pk=i)
+        question.votes += 1
+        serializer = QuestionSerializer(question, QuestionSerializer(question).data)
+        if serializer.is_valid():
+            serializer.save()
+
+    return Response(True)
+
+
+@api_view(['GET'])
+def vote_count_ajax(request, pk):
+    # echo in PHP.. I'm going to try returning concatinated string and see if that works...
+    string = """<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>\n<response>"""
+    #add vote count
+    string += str(Question.objects.get(pk=pk).votes) + ""
+    string += "</response>"
+    print(string)
+    # queryset = serializers.serialize('xml', Question.objects.all())
+    return HttpResponse(string, content_type="application/xml")

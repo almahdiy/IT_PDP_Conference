@@ -29,5 +29,7 @@ urlpatterns = [
     url(r'^options/(?P<pk>[0-9]+)$', views.MCQOptionDetail.as_view()),
     url(r'^mcqsoptions/(?P<pk>[0-9]+)/$', views.get_MCQ_options),
     url(r'^authenticate/$', views.authenticate),
+    url(r'^vote/$', views.vote),
+    url(r'^vote_count_ajax/(?P<pk>[0-9]+)/$', views.vote_count_ajax),
 
 ]
