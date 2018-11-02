@@ -2,8 +2,9 @@ import requests
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.template import loader
+import json
 
-from .forms import AuthenticationForm
+from .forms import AuthenticationForm, NewQuestionForm
 
 # To be replaced once we have the API on the production server
 API_URL = "http://127.0.0.1:8000/"
@@ -104,7 +105,21 @@ def icebreaker(request):
 
 @authenticate
 def QA(request):
-    return respondGeneric(request, "webapp/q&a.html")
+    template = loader.get_template("webapp/q&a.html")
+    if request.method == 'GET':
+        r = requests.get(API_URL + "questions/")
+        # I am trying to store the json in a string variable
+        s = json.dumps(r.json(), indent=4)
+        print(r.json())
+        list_of_questions = r.json()
+        print(list_of_questions)
+        # r.json() returns a list of dictionaries, where every dictionary represents an object
+        context = {
+            'questions': list_of_questions,
+        }
+
+        return HttpResponse(template.render(context, request))
+    return HttpResponseRedirect('FAQ')
 
 
 @authenticate
@@ -140,6 +155,27 @@ def team_graphics(request):
 @authenticate
 def about(request):
         return respondGeneric(request, "webapp/about.html")
+
+
+
+def create_question(request):
+    # print("TEST")
+    # print(request.POST)
+    form = NewQuestionForm(data=request.POST)
+    if form.is_valid():
+        print("Form is valid")
+        # if True:
+        # Creates an object from the form. Doesn't save it though!
+        qa = form.save(commit=False)
+        # Getting data that is formatted properly so we can pass it to the API/database
+        question = form.cleaned_data['body']
+
+        # This gets you the stuff.. Now we need to put them in a json file and send them to the API
+        dic = {"body": question}
+        # iles = {"image": open(request.FILES['myfile'], 'rb')}
+
+        r = requests.post(API_URL + 'questions/', data=dic)
+    return HttpResponseRedirect('QA')
 
 # def splash(request):
 #     current_user_id = str(request.session.get('loggedin', 0))

@@ -1,4 +1,4 @@
-from .models import Authentication
+from .models import Authentication, Question
 from django import forms
 
 
@@ -8,3 +8,10 @@ class AuthenticationForm(forms.ModelForm):
     class Meta:
         model = Authentication
         fields = ['sessionID']
+
+
+
+class NewQuestionForm(forms.ModelForm):
+    class Meta:
+        model = Question
+        fields = ['body']

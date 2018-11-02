@@ -26,22 +26,48 @@
 <!--Main content of the page-->
 <div>
     <form class="form">
-    <h2>Q&A</h2>
-    <div class="inputGroup">
-        <input id="check1" name="checkbox" type="checkbox"/>
-        <label for="check1">test1 </label>
-    </div>
-    <br><br>
-    <div class="inputGroup">
-        <input id="check2" name="checkbox" type="checkbox"/>
-        <label for="check2">test2 </label>
-    </div>
-    <br><br>
-    <div class="inputGroup">
-        <input id="check3" name="checkbox" type="checkbox"/>
-        <label for="check3">test3 </label>
-    </div>
-</form>
+        <h2>Q&A</h2>
+        <div class="inputGroup">
+            <input id="check1" name="checkbox" type="checkbox"/>
+            <label for="check1">test1 </label>
+        </div>
+        <br><br>
+        <div class="inputGroup">
+            <input id="check2" name="checkbox" type="checkbox"/>
+            <label for="check2">test2 </label>
+        </div>
+        <br><br>
+        <div class="inputGroup">
+            <input id="check3" name="checkbox" type="checkbox"/>
+            <label for="check3">test3 </label>
+        </div>
+    </form>
+
+    <h3>Testing API questions rendering:</h3>
+    <form class="form">
+        {% for question in questions %}
+        <div class="inputGroup">
+            <input id="check2" name="checkbox" type="checkbox"/>
+            <label for="check2">{{question.body |linebreaks}} </label>
+        </div>
+        <br><br>
+        {% endfor %}
+    </form>
+    
+
+    <h3>Submit a new question!</h3>
+    <form action="create_FAQ" method="POST">
+        {% csrf_token %}
+        <!-- <label for="question">Question: </label>
+        <br> -->
+        <textarea rows="4" cols="50" id="question" type="text" name="question"></textarea>
+        <br><br>
+        
+        <!--<button type="submit">Upload</button>-->
+        <br><br>
+        <input type="submit" value="Submit" />
+        
+    </form>
 </div>
 </body>
 </html>
