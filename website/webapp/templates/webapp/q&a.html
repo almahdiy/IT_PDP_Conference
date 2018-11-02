@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Hello World!</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- External link (relative) to your main stylesheet -->
+    <link rel="stylesheet" href="../../static/css/styles.css">
+
+    <!-- External link to Google fonts to be used on this page -->
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch|Poiret+One|Rajdhani|Raleway|Teko" rel="stylesheet">
+
+    <!-- External link (relative) to your javascript file -->
+    <script src="../../static/js/index.js"></script>
+    <script src="../../static/js/https_code.jquery.com_jquery-1.10.2.js"></script>
+    <!-- Used to refactor navigation bar -->
+</head>
+
+<body>
+{% include './components/navbar.html' %}
+{% include './components/topbar_icebreaker.html' %}
+
+<!--Main content of the page-->
+<div>
+    <form class="form">
+        <h2>Radio Buttons</h2>
+        <div class="inputGroup">
+            <input id="radio1" name="radio" type="radio"/>
+            <label for="radio1">have been asked to vertically align the 
+                text in the labels for the fields in a form but I don't 
+                understand why they are not moving. 
+                I have tried putting in-line styles using v <br>
+            ertical-align:top; and other a
+            </label>
+        </div>
+        <br><br><br>
+        <div class="inputGroup">
+            <input id="radio2" name="radio" type="radio"/>
+            <label for="radio2">No</label>
+        </div>
+        <br><br>
+    </form>
+</div>
+</body>
+</html>
+

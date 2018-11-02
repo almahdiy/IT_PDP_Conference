@@ -77,6 +77,13 @@ def icebreaker(request):
         return HttpResponseRedirect("/../home")
     else:
         template = loader.get_template("webapp/icebreaker.html")
+        """
+        I'll write my thoughts here so I don't get confused XD
+        ....
+        Users are going to get an initial screen with just a game description
+        We start the game manually from the backend and ask them to refresh
+        They 
+        """
         return HttpResponse(template.render())
 
 
