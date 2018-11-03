@@ -30,6 +30,8 @@ urlpatterns = [
     url(r'^mcqsoptions/(?P<pk>[0-9]+)/$', views.get_MCQ_options),
     url(r'^authenticate/$', views.authenticate),
     url(r'^vote/$', views.vote),
+    url(r'^question_count/$', views.question_count),
     url(r'^vote_count_ajax/(?P<pk>[0-9]+)/$', views.vote_count_ajax),
+    #url(r'^icebreaker_status/$', views.icebreaker_status),
 
 ]

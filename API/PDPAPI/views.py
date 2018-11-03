@@ -153,7 +153,7 @@ class MCQOptionDetail(APIView):
 
     def get(self, request, pk, format=None):
         MCQOption = self.get_object(pk)
-        serializer = MCQOptionSerializer(MCQ)
+        serializer = MCQOptionSerializer(MCQOption)
         return Response(serializer.data)
 
     def put(self, request, pk, format=None):
@@ -208,3 +208,20 @@ def vote_count_ajax(request, pk):
     print(string)
     # queryset = serializers.serialize('xml', Question.objects.all())
     return HttpResponse(string, content_type="application/xml")
+
+@api_view(['GET'])
+def question_count(request):
+    print("Do we get here?")
+    count = len(Question.objects.all())
+    string = """<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>\n<response>"""
+    #add vote count
+    string += str(count)
+    string += "</response>"
+    return HttpResponse(string)
+
+
+
+
+
+
+#icebreaker_status
