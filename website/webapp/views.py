@@ -96,15 +96,20 @@ def icebreaker(request):
     if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
         return HttpResponseRedirect("/../home")
     else:
+        r = requests.get(API_URL + "mcqs/")
+        # I am trying to store the json in a string variable
+        s = json.dumps(r.json(), indent=4)
+        list_of_questions = r.json()
+        for question in list_of_questions:
+            question["options"] = requests.get(API_URL + "mcqsoptions/" + str(question["id"])).json()
+
+        print(list_of_questions)
         template = loader.get_template("webapp/icebreaker.html")
-        """
-        I'll write my thoughts here so I don't get confused XD
-        ....
-        Users are going to get an initial screen with just a game description
-        We start the game manually from the backend and ask them to refresh
-        They 
-        """
-        return HttpResponse(template.render())
+        context = {
+            'questions': list_of_questions,
+        }
+
+        return HttpResponse(template.render(context, request))
 
 
 @authenticate

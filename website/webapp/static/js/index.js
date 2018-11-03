@@ -99,7 +99,7 @@ function process() {
             //Send the request you made...
             xmlHttp.send(null); // the parameter is what you send with the request (i.e. with POSTs)
             var id = document.getElementById(i).value;
-            // alert(id)
+            // alert(id)git
             xmlHttp.onreadystatechange = handleServerResponse(i);
         }
 
