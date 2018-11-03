@@ -65,37 +65,59 @@ function createXmlHttpRequestObject()
  * The server; gets called once the page loads
  */
 function process() {
-    
+    // alert("In process");
     // These states mean the object is free and ready to communicate with the server
     if(xmlHttp.readyState==4 || xmlHttp.readyState==0)
     {
-        // alert('In Process');
-        // Document is the webpage
-        // The value of "food" is whatever the user typed in the input box
-        //food = encodeURIComponent(document.getElementById("userInput").value)
-        // Sending the request / actually communicating with the Django part
-        //the type of request, what you are sending to the django file, syncronous 
-        var id = document.getElementById("1").value;
-        // alert(id)
-        xmlHttp.open("GET", API_URL + "vote_count_ajax/" + id, true);
-        //If we get information back, call this other function to do something
-        //Send the request you made...
-        xmlHttp.send(null); // the parameter is what you send with the request (i.e. with POSTs)
-        xmlHttp.onreadystatechange = handleServerResponse;
+        // so we know how many questions
+        xmlHttp.open("GET", API_URL + "question_count", false);
+        xmlHttp.send(null);
+        // alert("xmlHttp.readyState: " + xmlHttp.readyState);
+        if(xmlHttp.readyState==4) //object is done communication
+        {
+            // alert("xmlHttp.status: " + xmlHttp.status);
+            if(xmlHttp.status==200) //if communication went okay
+            {
+                // alert("will update the question count");
+                xmlResponse = xmlHttp.responseXML;
+                // alert("xmlHttp.responseXML: " + xmlHttp.responseXML)
+                XMLDocumentElement = xmlResponse.XMLDocumentElement; //the XML root
+                // alert(xmlResponse.firstChild.textContent)
+                question_count= xmlResponse.firstChild.textContent;
+                //  alert("question count updated");
+            }
+        }
+        else
+        {
+            setTimeout('process()', 10000);
+        }
+        // alert("question count: " + question_count);
+        for (i = 1; i <= question_count; i++) { 
+            
+            xmlHttp.open("GET", API_URL + "vote_count_ajax/" + i, false);
+            //If we get information back, call this other function to do something
+            //Send the request you made...
+            xmlHttp.send(null); // the parameter is what you send with the request (i.e. with POSTs)
+            var id = document.getElementById(i).value;
+            // alert(id)
+            xmlHttp.onreadystatechange = handleServerResponse(i);
+        }
+
         
 
     }
     //If the object is busy, wait for 1000 then timeout and call process() again
     else 
     {
-        setTimeout('process()', 1000);
+        setTimeout('process()', 10000);
     }
 }
 
 
-function handleServerResponse() 
+function handleServerResponse(num) 
 {
-    // alert("handleServerResponse");
+    // alert("num: " + num)
+    // alert("handleServerResponse, num: " + num);
     //The server is going to send us an XML file in between "response" tags
     if(xmlHttp.readyState==4) //object is done communication
     {
@@ -114,12 +136,12 @@ function handleServerResponse()
             //Get the element by ID and set the inner html to that content
             // alert("message: " + message);
             // alert(document.getElementById("ajaxId1"));
-            // alert("inner HTML: " + document.getElementById("ajaxId1").textContent);
-            document.getElementById("ajaxId1").textContent = message;
-            setTimeout('process()', 1000);
+            // alert("inner HTML: " + document.getElementById("ajaxId" + num).textContent);
+            document.getElementById("ajaxId" + num).textContent = message;
+            setTimeout('process()', 10000);
         }
         else{
-            alert('Something went wrong!');
+            // alert('Something went wrong!');
         }
     }
 }

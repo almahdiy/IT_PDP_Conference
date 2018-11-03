@@ -189,10 +189,9 @@ def create_question(request):
 def question_voting(request):
     #IDs of questions user has voted for
     print("\n\n\n\n" + str(dict(request.POST)["checkbox"]))
-    votes = [x[:-1] for x in dict(request.POST)["checkbox"]]
-    print(votes)
-    print("fine here?")
-    message = {"votes" : votes}
+    # votes = [x[:-1] for x in dict(request.POST)["checkbox"]]
+    # print("\n\n\n\nfine here? {} \n\n\n\n\n".format(dict(request.POST)["checkbox"]))
+    message = {"votes" : dict(request.POST)["checkbox"]}
     r = requests.post(API_URL + 'vote/', data=message)
     return HttpResponseRedirect('QA')
     
@@ -233,3 +232,9 @@ def vote_count_ajax(request, pk):
         r = requests.get(API_URL + "vote_count_ajax/" + str(pk))
         return HttpResponse(r, content_type="application/xml")
 
+
+def question_count(request):
+    # echo in PHP.. I'm going to try returning concatinated string and see if that works...
+    if request.method == 'GET':
+        r = requests.get(API_URL + "question_count")
+        return HttpResponse(r, content_type="application/xml")

@@ -25,7 +25,6 @@
 
 <!--Main content of the page-->
 <div>
-
     <h3>Q&A voting</h3>
     <form class="form" action="question_voting" method="POST">
         {% csrf_token %}
@@ -33,8 +32,8 @@
         <div class="inputGroup">
             <input id={{question.id}} name="checkbox" type="checkbox" value={{question.id}}> 
             <label for={{question.id}}>{{question.body |linebreaks}} 
-                <!-- Tag for teh AJAX part -->
-                <p id={{question.ajaxId}} value={{question.ajaxId}}>Test</p> 
+                <!-- Tag for the AJAX part -->
+                <p id={{question.ajaxId}} value={{question.ajaxId}}>{{question.votes}}</p> 
              </label>
             <!-- <label for={{question.id}}>{{question.body |linebreaks}} Votes: {{question.votes |linebreaks}}</p> </label> -->
         </div>

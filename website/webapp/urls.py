@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^create_question$', views.create_question, name="create_question"),
     url(r'^question_voting$', views.question_voting, name="question_voting"),
     url(r'^vote_count_ajax/(?P<pk>[0-9]+)/$', views.vote_count_ajax, name="vote_count_ajax"),
+    url(r'^question_count$', views.question_count, name="question_count"),
     url(r'^metaverse$', views.metaverse, name="metaverse"),
     url(r'^committee$', views.committee, name="committee"),
     url(r'^team_programming$', views.team_programming, name="team_programming"),
