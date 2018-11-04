@@ -29,7 +29,7 @@
         <h2>{{question.question}}</h2>
         {% for option in question.options %}
         <div class="inputGroup">
-            <input id={{option.id}} name="radio" type="radio"/>
+            <input id={{option.id}} value={{option.id}} name="radio" type="radio"/>
             <label for={{option.id}}>{{option.option}}
             </label>
         </div>

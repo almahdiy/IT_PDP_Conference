@@ -51,9 +51,9 @@ def home(request):
 
     elif request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
-        print("This is a post request in the authentication page")
+        # print("This is a post request in the authentication page")
         if form.is_valid():
-            print("form is valid")
+            # print("form is valid")
             # Creates an object from the form. Doesn't save it though!
             obj = form.save(commit=False)
 
@@ -65,7 +65,7 @@ def home(request):
             r = requests.post(BACKEND_URL + 'authenticate/', data=dic)
             print(r.text)
             if (r.text == "false"):  # None was returned
-                print("wrong session ID")  # need to display an error message e.g. "wrong session ID try again" will do this later
+                # print("wrong session ID")  # need to display an error message e.g. "wrong session ID try again" will do this later
                 form = AuthenticationForm()
                 template_name = "webapp/splash.html"
                 return render(request, template_name, {'form': form})
@@ -73,7 +73,7 @@ def home(request):
                 # Submitted session ID is correct, set the current browser session and redirect to home
                 request.session['loggedin'] = 1
                 request.session.set_expiry(600)
-                print("In database")
+                # print("In database")
                 template = loader.get_template("webapp/home.html")
             return HttpResponse(template.render())
         else:
@@ -103,7 +103,7 @@ def icebreaker(request):
         for question in list_of_questions:
             question["options"] = requests.get(BACKEND_URL + "mcqsoptions/" + str(question["id"])).json()
 
-        print(list_of_questions)
+        #print(list_of_questions)
         template = loader.get_template("webapp/icebreaker.html")
         context = {
             'questions': list_of_questions,
@@ -124,7 +124,7 @@ def QA(request):
             question["ajaxId"] = "ajaxId" + str(question["id"])
 
 
-        print(list_of_questions)
+        # print(list_of_questions)
         # r.json() returns a list of dictionaries, where every dictionary represents an object
         context = {
             'questions': list_of_questions,
@@ -171,18 +171,18 @@ def about(request):
 
 
 def create_question(request):
-    print("In create_qustion\n\n")
+    #print("In create_qustion\n\n")
     # print("TEST")
     # print(request.POST)
     form = NewQuestionForm(data=request.POST)
     if form.is_valid():
-        print("Form is valid")
+        #print("Form is valid")
         # if True:
         # Creates an object from the form. Doesn't save it though!
         qa = form.save(commit=False)
         # Getting data that is formatted properly so we can pass it to the API/database
         question = form.cleaned_data['body']
-        print("Create_question is called")
+        #print("Create_question is called")
         # This gets you the stuff.. Now we need to put them in a json file and send them to the API
         dic = {"body": question}
         # iles = {"image": open(request.FILES['myfile'], 'rb')}
@@ -193,7 +193,7 @@ def create_question(request):
 
 def question_voting(request):
     #IDs of questions user has voted for
-    print("\n\n\n\n" + str(dict(request.POST)["checkbox"]))
+    #print("\n\n\n\n" + str(dict(request.POST)["checkbox"]))
     # votes = [x[:-1] for x in dict(request.POST)["checkbox"]]
     # print("\n\n\n\nfine here? {} \n\n\n\n\n".format(dict(request.POST)["checkbox"]))
     message = {"votes" : dict(request.POST)["checkbox"]}
@@ -243,3 +243,9 @@ def question_count(request):
     if request.method == 'GET':
         r = requests.get(BACKEND_URL + "question_count")
         return HttpResponse(r, content_type="application/xml")
+
+
+def icebreaker_submit(request):
+    optionID = dict(request.POST)["radio"][0] #We're using radio buttons so it'll always be 1
+    r = requests.put(API_URL + 'option_vote/' + optionID + "/")
+    return HttpResponseRedirect('icebreaker')

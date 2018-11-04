@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^vote/$', views.vote),
     url(r'^question_count/$', views.question_count),
     url(r'^vote_count_ajax/(?P<pk>[0-9]+)/$', views.vote_count_ajax),
+    url(r'^option_vote/(?P<pk>[0-9]+)/$', views.option_vote),
     #url(r'^icebreaker_status/$', views.icebreaker_status),
 
 ]
