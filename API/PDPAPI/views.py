@@ -222,6 +222,15 @@ def question_count(request):
 
 
 
+@api_view(['PUT'])
+def option_vote(request, pk):
+    
+    option = MCQOption.objects.get(id=pk)
+    option.totalVotes += 1
+    serializer = MCQOptionSerializer(option, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-#icebreaker_status
