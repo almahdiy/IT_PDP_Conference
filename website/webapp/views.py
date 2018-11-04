@@ -11,7 +11,7 @@ import json
 from .forms import AuthenticationForm, NewQuestionForm
 
 # To be replaced once we have the API on the production server
-API_URL = "http://127.0.0.1:8000/"
+BACKEND_URL = "http://127.0.0.1:10000/"
 NOT_LOGGED_IN = "0"
 
 
@@ -62,7 +62,7 @@ def home(request):
 
             dic = {"sessionID": sessionID}
 
-            r = requests.post(API_URL + 'authenticate/', data=dic)
+            r = requests.post(BACKEND_URL + 'authenticate/', data=dic)
             print(r.text)
             if (r.text == "false"):  # None was returned
                 print("wrong session ID")  # need to display an error message e.g. "wrong session ID try again" will do this later
@@ -96,12 +96,12 @@ def icebreaker(request):
     if (current_user_id == "0"):  # The session field will be storing a zero if no user is logged in
         return HttpResponseRedirect("/../home")
     else:
-        r = requests.get(API_URL + "mcqs/")
+        r = requests.get(BACKEND_URL + "mcqs/")
         # I am trying to store the json in a string variable
         s = json.dumps(r.json(), indent=4)
         list_of_questions = r.json()
         for question in list_of_questions:
-            question["options"] = requests.get(API_URL + "mcqsoptions/" + str(question["id"])).json()
+            question["options"] = requests.get(BACKEND_URL + "mcqsoptions/" + str(question["id"])).json()
 
         print(list_of_questions)
         template = loader.get_template("webapp/icebreaker.html")
@@ -116,7 +116,7 @@ def icebreaker(request):
 def QA(request):
     template = loader.get_template("webapp/q&a.html")
     if request.method == 'GET':
-        r = requests.get(API_URL + "questions/")
+        r = requests.get(BACKEND_URL + "questions/")
         # I am trying to store the json in a string variable
         s = json.dumps(r.json(), indent=4)
         list_of_questions = r.json()
@@ -187,7 +187,7 @@ def create_question(request):
         dic = {"body": question}
         # iles = {"image": open(request.FILES['myfile'], 'rb')}
 
-        r = requests.post(API_URL + 'questions/', data=dic)
+        r = requests.post(BACKEND_URL + 'questions/', data=dic)
     return HttpResponseRedirect('QA')
 
 
@@ -197,7 +197,7 @@ def question_voting(request):
     # votes = [x[:-1] for x in dict(request.POST)["checkbox"]]
     # print("\n\n\n\nfine here? {} \n\n\n\n\n".format(dict(request.POST)["checkbox"]))
     message = {"votes" : dict(request.POST)["checkbox"]}
-    r = requests.post(API_URL + 'vote/', data=message)
+    r = requests.post(BACKEND_URL + 'vote/', data=message)
     return HttpResponseRedirect('QA')
     
 
@@ -223,7 +223,7 @@ def question_voting(request):
 #
 #                 dic = {"sessionID": sessionID}
 #
-#                 r = requests.post(API_URL + 'authenticate/', data=dic)
+#                 r = requests.post(FRONTEND_URL + 'authenticate/', data=dic)
 #                 print("test")
 #                 if (len(r.text) == 0):  # None was returned
 #                     print("Not in database")
@@ -234,12 +234,12 @@ def question_voting(request):
 def vote_count_ajax(request, pk):
     # echo in PHP.. I'm going to try returning concatinated string and see if that works...
     if request.method == 'GET':
-        r = requests.get(API_URL + "vote_count_ajax/" + str(pk))
+        r = requests.get(BACKEND_URL + "vote_count_ajax/" + str(pk))
         return HttpResponse(r, content_type="application/xml")
 
 
 def question_count(request):
     # echo in PHP.. I'm going to try returning concatinated string and see if that works...
     if request.method == 'GET':
-        r = requests.get(API_URL + "question_count")
+        r = requests.get(BACKEND_URL + "question_count")
         return HttpResponse(r, content_type="application/xml")
