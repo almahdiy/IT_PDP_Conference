@@ -23,7 +23,7 @@
 {% include './components/topbar_q&a.html' %}
 
 <!--Main content of the page-->
-<div>
+<div id="main" onclick="closeNav()">
     <h3>Q&A voting</h3>
     <form class="form" action="question_voting" method="POST">
         {% csrf_token %}
