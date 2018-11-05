@@ -3,25 +3,6 @@ const DONE = 4;
 const SUCCESS = 200;
 
 
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-}
-
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.body.style.backgroundColor = "rgba(228, 228, 190, 1)";
-}
-
-
-//**************************************** AJAX COMPONENTS
-
-
-/**
- * Ice Breaker Stuff for reference: https://www.youtube.com/watch?v=r80S2CnCjLs
-*/
-
-
 /**
  * Create the awesome object that lets you update the page without refreshing
  */
