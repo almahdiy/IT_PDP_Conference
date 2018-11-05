@@ -247,5 +247,5 @@ def question_count(request):
 
 def icebreaker_submit(request):
     optionID = dict(request.POST)["radio"][0] #We're using radio buttons so it'll always be 1
-    r = requests.put(API_URL + 'option_vote/' + optionID + "/")
+    r = requests.put(BACKEND_URL + 'option_vote/' + optionID + "/")
     return HttpResponseRedirect('icebreaker')
