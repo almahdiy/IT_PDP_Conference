@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.template import loader
 from rest_framework.response import Response
 import json
+from uuid import getnode as get_mac
 
 
 
@@ -72,7 +73,8 @@ def home(request):
             else:
                 # Submitted session ID is correct, set the current browser session and redirect to home
                 request.session['loggedin'] = 1
-                request.session.set_expiry(600)
+                request.session['mac_address'] = get_mac()
+                #request.session.set_expiry(600)
                 # print("In database")
                 template = loader.get_template("webapp/home.html")
             return HttpResponse(template.render())
@@ -196,7 +198,7 @@ def question_voting(request):
     #print("\n\n\n\n" + str(dict(request.POST)["checkbox"]))
     # votes = [x[:-1] for x in dict(request.POST)["checkbox"]]
     # print("\n\n\n\nfine here? {} \n\n\n\n\n".format(dict(request.POST)["checkbox"]))
-    message = {"votes" : dict(request.POST)["checkbox"]}
+    message = {"votes" : dict(request.POST)["checkbox"], }
     r = requests.post(API_URL + 'vote/', data=message)
     return HttpResponseRedirect('QA')
     
@@ -247,5 +249,6 @@ def question_count(request):
 
 def icebreaker_submit(request):
     optionID = dict(request.POST)["radio"][0] #We're using radio buttons so it'll always be 1
-    r = requests.put(API_URL + 'option_vote/' + optionID + "/")
+    dic = {"mac_address": get_mac()}
+    r = requests.put(API_URL + 'option_vote/' + optionID + "/", data=dic)
     return HttpResponseRedirect('icebreaker')

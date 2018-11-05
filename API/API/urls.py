@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^questions/$', views.QuestionList.as_view()),
     url(r'^questions/(?P<pk>[0-9]+)$', views.QuestionDetail.as_view()),
+    url(r'^macs/$', views.MACList.as_view()),
+    url(r'^macs/(?P<pk>[0-9]+)$', views.MACDetail.as_view()),
     url(r'^mcqs/$', views.MCQList.as_view()),
     url(r'^mcqs/(?P<pk>[0-9]+)$', views.MCQDetail.as_view()),
     url(r'^options/$', views.MCQOptionList.as_view()),

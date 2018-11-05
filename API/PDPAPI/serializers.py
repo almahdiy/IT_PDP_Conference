@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Question, Authentication, MCQ, MCQOption
+from .models import Question, Authentication, MCQ, MCQOption, MAC, OptionVoting
 
 
 #For the QA session
@@ -25,3 +25,19 @@ class MCQOptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = MCQOption
         fields = '__all__'    
+
+
+
+class MACSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MAC
+        fields = '__all__'    
+
+
+
+class OptionVotingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OptionVoting
+        fields = '__all__'    
+
+

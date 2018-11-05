@@ -4,9 +4,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from django.core import serializers
+import requests
+from django.core import serializers
+from django.shortcuts import render
+from django.template import loader
 
-from .models import Question, Authentication, MCQ, MCQOption
-from .serializers import QuestionSerializer, AuthenticationSerializer, MCQSerializer, MCQOptionSerializer
+from .models import Question, Authentication, MCQ, MCQOption, MAC, OptionVoting
+from .serializers import QuestionSerializer, AuthenticationSerializer, MCQSerializer, MCQOptionSerializer, MACSerializer, OptionVotingSerializer
 
 
 
@@ -55,6 +59,54 @@ class QuestionDetail(APIView):
     def delete(self, request, pk, format=None):
         question = self.get_object(pk)
         question.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+
+class MACList(APIView):
+    """
+    List all Question objects, or add a new Question to the database.
+    """
+    def get(self, request, format=None):
+        macs = MAC.objects.all()
+        serializer = MACSerializer(macs, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = MACSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class MACDetail(APIView):
+    """
+    Access a specific Question object, edit it, and delete it.
+    """
+    def get_object(self, pk):
+        try:
+            return MAC.objects.get(pk=pk)
+        except MAC.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        MAC = self.get_object(pk)
+        serializer = MACSerializer(MAC)
+        return Response(serializer.data)
+
+    def put(self, request, pk, format=None):
+        mac = self.get_object(pk)
+        serializer = MACSerializer(mac, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        mac = self.get_object(pk)
+        mac.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
@@ -224,13 +276,71 @@ def question_count(request):
 
 @api_view(['PUT'])
 def option_vote(request, pk):
-    
     option = MCQOption.objects.get(id=pk)
-    option.totalVotes += 1
-    serializer = MCQOptionSerializer(option, data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    #Check the mac address
+    print(option.MCQ_id.id)
+    #MAC address (how we're identifying the users: request.data["mac_address"]
+  
+    try: #This person is trying to vote a thousand times. Don't let them!
+        stored_votes = OptionVoting.objects.get(unique=request.data["mac_address"], MCQ_id=option.MCQ_id.id)
+    except OptionVoting.DoesNotExist:
+        #create the OptionVoting for this combination so the user cannot vote next time
+        dic = {"MCQ_id" : option.MCQ_id.id, "unique" : request.data["mac_address"]}
+        serializer = OptionVotingSerializer(data=dic)
+        if serializer.is_valid():
+            serializer.save()
+        #The MAC address-option-question is valid; you can increment the count
+        print("\n\nGood up to here!\n\n")
+        option.totalVotes += 1
+        serializer = MCQOptionSerializer(option, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    return Response(False)
+
+    
+
+    #Get option's question --> get question's associated mac addresses
+    # question = MCQ.objects.get(id=option.MCQ_id.id)
+    # print("\n\n\n\n\n\n up to here fine? \n\n\n\n\n\n")
+    #List of MAC addresses that answered this question
+    
+    print("request.data: {}".format(request.data))
+    macs_this_qusestion = question.mac_set.all()
+    #compare it to the MAC address passed with the payload
+    print("macs_this_qusestion : {}".format(macs_this_qusestion))
+    print("received mac: {}".format(int(request.data["mac_address"])))
+    print("type: {}".format(type(macs_this_qusestion)))
+
+    #block for testing
+    print("testing block")
+    dic = {
+        "mac_address" : request.data["mac_address"]
+    }
+    r = requests.post("http://127.0.0.1:8000/macs/", data=dic)
+    print("after request")
+
+    question.mac_set.add()
+    print("for testing: macs_this_question after adding: {}".format(question.mac_set.all()))
+    #end of testing block
+
+    if(request.data["mac_address"] in macs_this_qusestion):
+        print("\n\n\nvoted before\n\n\n")
+        #means user already voted for this question; don't do anything
+        serializer = MCQOptionSerializer(option, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+    else: #this user hasn't voted on this question yet, you can process
+        print("\n\n\nnot voted before\n\n\n")
+        option.totalVotes += 1
+        #add the mac address to the list so we can ignore any more submissions from this user (for this particular question)
+        question.mac_set.add(MCQOption.objects.get(id=pk))
+        serializer = MCQOptionSerializer(option, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
