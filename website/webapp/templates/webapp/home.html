@@ -14,23 +14,20 @@
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch|Poiret+One|Rajdhani|Raleway|Teko" rel="stylesheet">
 
     <!-- External link (relative) to your javascript file -->
-    <script src="../../static/js/index.js"></script>
+    <script src="../../static/js/navbar.js"></script>
 </head>
 
 <body>
 {% include './components/navbar.html' %}
 {% include './components/topbar_home.html' %}
 
-<!--Main content of the page-->
-<div id="main">
+
+<div id="main" onclick="closeNav()">
     <section>
-        <!-- logo -->
         <img id="logo" src="../../static/images/logo_animated.gif" alt="Northport"/>
 
-        <!-- Title -->
         <h1>2018<br/>IT <b>PDP</b><br/>Conference</h1>
 
-        <!-- Text -->
         <p>
             A very warm welcome to the much awaited 2018 IT PDP Conference!
         </p>

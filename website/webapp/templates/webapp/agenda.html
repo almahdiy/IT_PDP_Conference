@@ -14,15 +14,15 @@
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch|Poiret+One|Rajdhani|Raleway|Teko" rel="stylesheet">
 
     <!-- External link (relative) to your javascript file -->
-    <script src="../../static/js/index.js"></script>
+    <script src="../../static/js/navbar.js"></script>
 </head>
 
 <body>
 {% include './components/navbar.html' %}
 {% include './components/topbar_agenda.html' %}
 
-<div id="main">
-    <img id="agenda" src="../../static/images/agenda.png"/>
+<div id="main" onclick="closeNav()">
+    <img id="agenda" src="../../static/images/agenda.jpg"/>
 </div>
 </body>
 </html>

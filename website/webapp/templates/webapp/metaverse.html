@@ -14,14 +14,14 @@
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch|Poiret+One|Rajdhani|Raleway|Teko" rel="stylesheet">
 
     <!-- External link (relative) to your javascript file -->
-    <script src="../../static/js/index.js"></script>
+    <script src="../../static/js/navbar.js"></script>
 </head>
 
 <body>
 {% include './components/navbar.html' %}
 {% include './components/topbar_metaverse.html' %}
 
-<div id="main">
+<div id="main" onclick="closeNav()">
     <section>
         <h1 class="subtitle">Metaverse</h1>
         <p>
@@ -45,13 +45,10 @@
             a reward. Good luck!
         </p>
 
-        <!--WORKING ! ! !-->
-        <!--<div class="inputGroup">-->
-            <!--<input id="radio1" name="radio" type="radio"/>-->
-            <!--<label for="radio1">Yes-->
-            <!--</label>-->
-            <!--<br>-->
-        <!--</div>-->
+        <p><b>1. Download:</b> Get the Metaverse app (see links below)</p>
+        <p><b>2. Scan or Search:</b> In Metaverse, use the QR code on our lobby banner or search 'Adapting New Technology'</p>
+        <p><b>3. Play:</b> Solve the three puzzles to unlock a reward!*</p>
+
 
         <div id="images">
             <a href="https://itunes.apple.com/gb/app/metaverse-experience-browser/id1159155137?mt=8">
@@ -71,7 +68,7 @@
             technologies are compatible with this game. If you are unsure, just
             launch and play the game; it contains an in-game compatibility checker.
             If your phone is incompatible, you will not be able to complete the game
-            (without a bit of magic).
+            (unless you use a little bit of magic).
         </p>
     </section>
 
