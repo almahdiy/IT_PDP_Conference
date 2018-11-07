@@ -54,3 +54,10 @@ class OptionVoting(models.Model):
     MCQ_id = models.ForeignKey('MCQ', on_delete=models.CASCADE, null=True,) # When the question is deleted, the option will also be deleted.
     #MCQOption_id = models.ForeignKey('MCQOption', on_delete=models.CASCADE, null=True,) # When the question is deleted, the option will also be deleted.
     unique = models.IntegerField(default=0) #MAC address, IP, ...etc
+
+
+
+#table to help validate the vote before 
+class QuestionVoting(models.Model):
+    question_id = models.ForeignKey('Question', on_delete=models.CASCADE, null=True,) # When the question is deleted, the option will also be deleted.
+    unique = models.IntegerField(default=0) #MAC address, IP, ...etc

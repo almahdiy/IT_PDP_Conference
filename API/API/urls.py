@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^questions/$', views.QuestionList.as_view()),
     url(r'^questions/(?P<pk>[0-9]+)$', views.QuestionDetail.as_view()),
+    url(r'^questionvotings/$', views.QuestionVotingList.as_view()),
+    url(r'^questionvotings/(?P<pk>[0-9]+)$', views.QuestionVotingDetail.as_view()),
     url(r'^macs/$', views.MACList.as_view()),
     url(r'^macs/(?P<pk>[0-9]+)$', views.MACDetail.as_view()),
     url(r'^mcqs/$', views.MCQList.as_view()),
@@ -35,6 +37,7 @@ urlpatterns = [
     url(r'^question_count/$', views.question_count),
     url(r'^vote_count_ajax/(?P<pk>[0-9]+)/$', views.vote_count_ajax),
     url(r'^option_vote/(?P<pk>[0-9]+)/$', views.option_vote),
+    
     #url(r'^icebreaker_status/$', views.icebreaker_status),
 
 ]

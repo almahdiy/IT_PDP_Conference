@@ -173,9 +173,6 @@ def about(request):
 
 
 def create_question(request):
-    #print("In create_qustion\n\n")
-    # print("TEST")
-    # print(request.POST)
     form = NewQuestionForm(data=request.POST)
     if form.is_valid():
         #print("Form is valid")
@@ -194,43 +191,12 @@ def create_question(request):
 
 
 def question_voting(request):
-    #IDs of questions user has voted for
-    #print("\n\n\n\n" + str(dict(request.POST)["checkbox"]))
-    # votes = [x[:-1] for x in dict(request.POST)["checkbox"]]
-    # print("\n\n\n\nfine here? {} \n\n\n\n\n".format(dict(request.POST)["checkbox"]))
-    message = {"votes" : dict(request.POST)["checkbox"]}
-    r = requests.post(BACKEND_URL + 'vote/', data=message)
-    return HttpResponseRedirect('QA')
-    
-
-# def splash(request):
-#     current_user_id = str(request.session.get('loggedin', 0))
-#     if (current_user_id == NOT_LOGGED_IN):
-#         return HttpResponseRedirect("/../home")
-#     else:
-#         if request.method == 'GET':
-#             template = loader.get_template("webapp/splash.html")
-#             return HttpResponse(template.render())
-#
-#         elif (request.method == "POST"):
-#             form = AdminLoginForm(data=request.POST)
-#             print("This is a post request in the authentication page")
-#             if form.is_valid():
-#                 print("form is valid")
-#                 # Creates an object from the form. Doesn't save it though!
-#                 obj = form.save(commit=False)
-#
-#                 # Getting data that is formatted properly so we can pass it to the API/database
-#                 sessionID = form.cleaned_data['sessionID']
-#
-#                 dic = {"sessionID": sessionID}
-#
-#                 r = requests.post(FRONTEND_URL + 'authenticate/', data=dic)
-#                 print("test")
-#                 if (len(r.text) == 0):  # None was returned
-#                     print("Not in database")
-#                 else:
-#                     print("In database")
+    try:
+        message = {"votes" : dict(request.POST)["checkbox"], "mac_address": get_mac()}
+        r = requests.post(BACKEND_URL + 'vote/', data=message)
+        return HttpResponseRedirect('QA')
+    except:
+        return HttpResponseRedirect('QA')
 
 
 def vote_count_ajax(request, pk):

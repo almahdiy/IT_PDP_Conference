@@ -16,6 +16,7 @@
     <!-- External link (relative) to your javascript file -->
     <script src="../../static/js/navbar.js"></script>
     <script src="../../static/js/qa_voting.js"></script>
+    <script src="../../static/js/qa_new_question.js"></script>
 </head>
 
 <body onload="setInterval(updateVotes, 5000)">
@@ -33,27 +34,46 @@
             <label for={{question.id}}>{{question.body |linebreaks}} 
                 <!-- Tag for the AJAX part -->
                 <p id={{question.ajaxId}} value={{question.ajaxId}}>{{question.votes}}</p> 
-             </label>
+            </label>
             <!-- <label for={{question.id}}>{{question.body |linebreaks}} Votes: {{question.votes |linebreaks}}</p> </label> -->
         </div>
-        <br><br>
-        {% endfor %}
-        <button type="submit" value="Submit">Vote!</button>
-    </form>
-    
 
-    <h3>Submit a new question!</h3>
-    <form action="create_question" method="POST">
-        {% csrf_token %}
-        <!-- <label for="question">Question: </label>
-        <br> -->
-        <textarea rows="4" cols="50" id="question" type="text" name="body"></textarea>
-        <br><br>
-        
-        <!--<button type="submit">Upload</button>-->
-        <br><br>
-        <button type="submit" value="Submit">Submit question</button>
+        {% endfor %}
+        <button class="submit" type="submit" value="Submit">Vote!</button>
     </form>
+    <br><br><br>
+
+    <button class="collapsible">Have a question? Post it!</button>
+    <div class="content">
+        <form action="create_question" method="POST">
+            {% csrf_token %}
+            <!-- <label for="question">Question: </label>
+            <br> -->
+            <textarea rows="4" cols="50" id="question" type="text" name="body"></textarea>
+            <br>
+            
+            <!--<button type="submit">Upload</button>-->
+            
+            <button class="submit" type="submit" value="Submit">Submit question</button>
+        </form>
+    </div>
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } 
+            });
+        }
+        </script>
+    <br><br>
 </div>
 </body>
 </html>

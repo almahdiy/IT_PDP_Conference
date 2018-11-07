@@ -196,10 +196,11 @@ img.nounicons {
 }
 
 h2.topnav {
-    font-size: 18px;
+    font-size: 25px;
     font-family: 'Teko', sans-serif;
     font-weight: 400;
     position: absolute;
+    text-align: center;
     right: 10px;
     top: 20px;
     margin: 0 0 0 0;
@@ -298,12 +299,16 @@ input,
 span,
      /*label,*/
 textarea {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
+    background-color: #77918E;
+    border: #5e7777;
+    color: #efe1b8;
     display: block;
-    margin: 10px;
     padding: 5px;
     border: none;
-    font-size: 10px;
+    /* font-size: 18px; */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 textarea:focus,
@@ -471,6 +476,7 @@ div#splash_background {
     width: 100%;
     overflow: hidden;
     position: relative;
+    margin: 10px 0 10px 0;
     /* margin: 10px 0;
     position: relative; */
 }
@@ -575,3 +581,71 @@ code {
     margin-left: auto;
     margin-right: auto;
 } */
+
+
+
+
+/* Q&A Submitting a new question */
+
+.collapsible {
+    background-color: transparent;
+    color: #5e7777;
+    cursor: pointer;
+    padding: 18px;
+    width: 65%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: transparent; 
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+  }
+  
+  .collapsible:after {
+    content: '\002B';
+    width: 25px;
+    height: 25px;
+    bottom:0;
+    /* left:0; */
+    top: 50%;
+    text-align:center;
+    background-color: #ff7b0f;
+    font-size: inherit;
+    color: #ffaa0c;
+    font-weight: bold;
+    float: right;
+    font-size: 20px;
+    /* margin-left: 5px; */
+  }
+  
+  .active:after {
+    content: "\2212";
+  }
+  
+  .content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: transparent;
+  }
+
+
+  .submit {
+    padding: 15px 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ff7b0f;
+    color: #efe1b8;
+
+  }

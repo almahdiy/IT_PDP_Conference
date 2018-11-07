@@ -9,8 +9,8 @@ from django.core import serializers
 from django.shortcuts import render
 from django.template import loader
 
-from .models import Question, Authentication, MCQ, MCQOption, MAC, OptionVoting
-from .serializers import QuestionSerializer, AuthenticationSerializer, MCQSerializer, MCQOptionSerializer, MACSerializer, OptionVotingSerializer
+from .models import Question, Authentication, MCQ, MCQOption, MAC, OptionVoting, QuestionVoting
+from .serializers import QuestionSerializer, AuthenticationSerializer, MCQSerializer, MCQOptionSerializer, MACSerializer, OptionVotingSerializer, QuestionVotingSerializer
 
 
 
@@ -60,6 +60,56 @@ class QuestionDetail(APIView):
         question = self.get_object(pk)
         question.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+
+class QuestionVotingList(APIView):
+    """
+    List all Question objects, or add a new Question to the database.
+    """
+    def get(self, request, format=None):
+        questions = QuestionVoting.objects.all()
+        serializer = QuestionVotingSerializer(questions, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = QuestionVotingSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class QuestionVotingDetail(APIView):
+    """
+    Access a specific Question object, edit it, and delete it.
+    """
+    def get_object(self, pk):
+        try:
+            return QuestionVoting.objects.get(pk=pk)
+        except QuestionVoting.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        question = self.get_object(pk)
+        serializer = QuestionVotingSerializer(question)
+        return Response(serializer.data)
+
+    def put(self, request, pk, format=None):
+        question = self.get_object(pk)
+        serializer = QuestionVotingSerializer(question, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        question = self.get_object(pk)
+        question.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
 
 
 
@@ -238,6 +288,37 @@ def get_MCQ_options(request, pk):
 
 @api_view(['POST'])
 def vote(request):
+    votes = [int(x) for x in dict(request.data)["votes"]]
+    print("\n\n\n\nWE ARE VOTING ON QUESTIONS\n\n\n\n\n")
+    for vote in votes:
+        print("doing vote for question {}".format(vote))
+        question = Question.objects.get(id=vote)
+        try: #This person is trying to vote a thousand times. Don't let them!
+            stored_votes = QuestionVoting.objects.get(unique=request.data["mac_address"], question_id=question.id)
+            print("This question has been voted on before")
+        except QuestionVoting.DoesNotExist:
+            #create the OptionVoting for this combination so the user cannot vote next time
+            print("This question has not been voted on before")
+            dic = {"question_id" : question.id, "unique" : request.data["mac_address"]}
+            serializer = QuestionVotingSerializer(data=dic)
+            if serializer.is_valid():
+                serializer.save()
+            print("Vote has been created and user cannot vote on this same question next time")
+            #The MAC address-option-question is valid; you can increment the count
+            print("question.votes before: {}".format(question.votes))
+            question.votes += 1
+            print("question.votes after: {}".format(question.votes))
+
+            serializer = QuestionSerializer(question, data={"body":question.body, "votes":question.votes, "isAppropriate":question.isAppropriate})
+            if serializer.is_valid():
+                serializer.save()
+                print("Question with incerased vote has been saved.")
+                # return Response(serializer.data)
+            # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    return Response(True)
+
+
+
     votes = [int(x) for x in dict(request.data)["votes"]]
     print(votes)
     for i in votes:
