@@ -25,7 +25,10 @@ SECRET_KEY = 'g+oqg)l9_baw%8k7ac7tr(xz9c^yzssy*o9&iomcf_!%l3@y4i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["www.pdp-adapting.com", 
+                 "127.0.0.1", 
+		 "ubuntu-s-1vcpu-1gb-lon1-01", 
+		 "46.101.40.39"]
 
 
 # Application definition
