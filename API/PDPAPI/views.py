@@ -289,45 +289,23 @@ def get_MCQ_options(request, pk):
 @api_view(['POST'])
 def vote(request):
     votes = [int(x) for x in dict(request.data)["votes"]]
-    print("\n\n\n\nWE ARE VOTING ON QUESTIONS\n\n\n\n\n")
     for vote in votes:
-        print("doing vote for question {}".format(vote))
-        question = Question.objects.get(id=vote)
-        try: #This person is trying to vote a thousand times. Don't let them!
-            stored_votes = QuestionVoting.objects.get(unique=request.data["mac_address"], question_id=question.id)
-            print("This question has been voted on before")
-        except QuestionVoting.DoesNotExist:
-            #create the OptionVoting for this combination so the user cannot vote next time
-            print("This question has not been voted on before")
-            dic = {"question_id" : question.id, "unique" : request.data["mac_address"]}
-            serializer = QuestionVotingSerializer(data=dic)
-            if serializer.is_valid():
-                serializer.save()
-            print("Vote has been created and user cannot vote on this same question next time")
-            #The MAC address-option-question is valid; you can increment the count
-            print("question.votes before: {}".format(question.votes))
-            question.votes += 1
-            print("question.votes after: {}".format(question.votes))
+        if(question.isAppropriate):
+            question = Question.objects.get(id=vote)
+            try: #This person is trying to vote a thousand times. Don't let them!
+                stored_votes = QuestionVoting.objects.get(unique=request.data["mac_address"], question_id=question.id)
+            except QuestionVoting.DoesNotExist:
+                #create the OptionVoting for this combination so the user cannot vote next time
+                dic = {"question_id" : question.id, "unique" : request.data["mac_address"]}
+                serializer = QuestionVotingSerializer(data=dic)
+                if serializer.is_valid():
+                    serializer.save()
+                #The MAC address-option-question is valid; you can increment the count
+                question.votes += 1
 
-            serializer = QuestionSerializer(question, data={"body":question.body, "votes":question.votes, "isAppropriate":question.isAppropriate})
-            if serializer.is_valid():
-                serializer.save()
-                print("Question with incerased vote has been saved.")
-                # return Response(serializer.data)
-            # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    return Response(True)
-
-
-
-    votes = [int(x) for x in dict(request.data)["votes"]]
-    print(votes)
-    for i in votes:
-        question = Question.objects.get(pk=i)
-        question.votes += 1
-        serializer = QuestionSerializer(question, QuestionSerializer(question).data)
-        if serializer.is_valid():
-            serializer.save()
-
+                serializer = QuestionSerializer(question, data={"body":question.body, "votes":question.votes, "isAppropriate":question.isAppropriate})
+                if serializer.is_valid():
+                    serializer.save()
     return Response(True)
 
 
@@ -359,25 +337,23 @@ def question_count(request):
 def option_vote(request, pk):
     option = MCQOption.objects.get(id=pk)
     #Check the mac address
-    print(option.MCQ_id.id)
     #MAC address (how we're identifying the users: request.data["mac_address"]
-  
-    try: #This person is trying to vote a thousand times. Don't let them!
-        stored_votes = OptionVoting.objects.get(unique=request.data["mac_address"], MCQ_id=option.MCQ_id.id)
-    except OptionVoting.DoesNotExist:
-        #create the OptionVoting for this combination so the user cannot vote next time
-        dic = {"MCQ_id" : option.MCQ_id.id, "unique" : request.data["mac_address"]}
-        serializer = OptionVotingSerializer(data=dic)
-        if serializer.is_valid():
-            serializer.save()
-        #The MAC address-option-question is valid; you can increment the count
-        print("\n\nGood up to here!\n\n")
-        option.totalVotes += 1
-        serializer = MCQOptionSerializer(option, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    if(MCQ.objects.get(id=option.MCQ_id.id).open_for_voting):
+        try: #This person is trying to vote a thousand times. Don't let them!
+            stored_votes = OptionVoting.objects.get(unique=request.data["mac_address"], MCQ_id=option.MCQ_id.id)
+        except OptionVoting.DoesNotExist:
+            #create the OptionVoting for this combination so the user cannot vote next time
+            dic = {"MCQ_id" : option.MCQ_id.id, "unique" : request.data["mac_address"]}
+            serializer = OptionVotingSerializer(data=dic)
+            if serializer.is_valid():
+                serializer.save()
+            #The MAC address-option-question is valid; you can increment the count
+            option.totalVotes += 1
+            serializer = MCQOptionSerializer(option, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     return Response(False)
 
     

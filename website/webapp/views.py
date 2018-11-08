@@ -125,11 +125,14 @@ def QA(request):
         for question in list_of_questions:
             question["ajaxId"] = "ajaxId" + str(question["id"])
 
-
+        # print(list_of_questions[0])
+        #Filtering inappropriate questions
+        list_of_appropriate_questions = [question for question in list_of_questions if question["isAppropriate"]]
+        
         # print(list_of_questions)
         # r.json() returns a list of dictionaries, where every dictionary represents an object
         context = {
-            'questions': list_of_questions,
+            'questions': list_of_appropriate_questions,
         }
 
         return HttpResponse(template.render(context, request))

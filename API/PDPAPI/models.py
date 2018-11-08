@@ -13,7 +13,7 @@ class Question(models.Model):
 
     def __str__(self):
         return self.body
-
+   
 
 
 
@@ -32,6 +32,7 @@ class MCQ(models.Model):
     One-to-many relationship with MAC
     """
     question = models.TextField(default='')
+    open_for_voting = models.BooleanField(default=True)
 
 
 class MAC(models.Model):
