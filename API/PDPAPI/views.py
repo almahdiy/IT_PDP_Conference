@@ -1,18 +1,14 @@
+from pprint import pprint
+
 from django.http import Http404, HttpResponse
 from rest_framework import status
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.decorators import api_view
-from django.core import serializers
-import requests
-from django.core import serializers
-from django.shortcuts import render
-from django.template import loader
 
-from .models import Question, Authentication, MCQ, MCQOption, MAC, OptionVoting, QuestionVoting
-from .serializers import QuestionSerializer, AuthenticationSerializer, MCQSerializer, MCQOptionSerializer, MACSerializer, OptionVotingSerializer, QuestionVotingSerializer
-
-
+from .models import Question, MCQ, MCQOption, MAC, OptionVoting, QuestionVoting
+from .serializers import QuestionSerializer, AuthenticationSerializer, MCQSerializer, MCQOptionSerializer, \
+    MACSerializer, OptionVotingSerializer, QuestionVotingSerializer
 
 SESSION_ID = "1234"
 
@@ -175,8 +171,8 @@ def authenticate(request):
             return Response(True)
         else:
             return Response(False)
-            
-        
+
+
 class MCQList(APIView):
     """
     List all Question objects, or add a new Question to the database.
@@ -290,8 +286,8 @@ def get_MCQ_options(request, pk):
 def vote(request):
     votes = [int(x) for x in dict(request.data)["votes"]]
     for vote in votes:
+        question = Question.objects.get(id=vote)
         if(question.isAppropriate):
-            question = Question.objects.get(id=vote)
             try: #This person is trying to vote a thousand times. Don't let them!
                 stored_votes = QuestionVoting.objects.get(unique=request.data["mac_address"], question_id=question.id)
             except QuestionVoting.DoesNotExist:
@@ -356,4 +352,3 @@ def option_vote(request, pk):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     return Response(False)
 
-    
