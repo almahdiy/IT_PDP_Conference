@@ -1,3 +1,3 @@
-80#!/bin/bash
+#!/bin/bash
 cd website
-python manage.py runserver 0.0.0.0:80
+python3 manage.py runserver 0.0.0.0:80
