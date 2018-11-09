@@ -196,7 +196,8 @@ def create_question(request):
 
 def question_voting(request):
     try:
-        message = {"votes" : dict(request.POST)["checkbox"], "mac_address": get_mac()}
+        print("Is this my IP? {}".format(request.environ['REMOTE_ADDR']))
+        message = {"votes" : dict(request.POST)["checkbox"], "ip_address": request.environ['REMOTE_ADDR']}
         r = requests.post(BACKEND_URL + 'vote/', data=message)
         return HttpResponseRedirect('QA')
     except:

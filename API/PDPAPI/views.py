@@ -291,10 +291,10 @@ def vote(request):
         question = Question.objects.get(id=vote)
         if(question.isAppropriate):
             try: #This person is trying to vote a thousand times. Don't let them!
-                stored_votes = QuestionVoting.objects.get(unique=request.data["mac_address"], question_id=question.id)
+                stored_votes = QuestionVoting.objects.get(unique=request.data["ip_address"], question_id=question.id)
             except QuestionVoting.DoesNotExist:
                 #create the OptionVoting for this combination so the user cannot vote next time
-                dic = {"question_id" : question.id, "unique" : request.data["mac_address"]}
+                dic = {"question_id" : question.id, "unique" : request.data["ip_address"]}
                 serializer = QuestionVotingSerializer(data=dic)
                 if serializer.is_valid():
                     serializer.save()
