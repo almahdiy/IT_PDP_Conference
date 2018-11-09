@@ -209,6 +209,13 @@ def vote_count_ajax(request, pk):
         return HttpResponse(r, content_type="application/xml")
 
 
+def vote_count_ajax_all(request):
+    # echo in PHP.. I'm going to try returning concatinated string and see if that works...
+    if request.method == 'GET':
+        r = requests.get(BACKEND_URL + "vote_count_ajax_all/")
+        return HttpResponse(r, content_type="application/json")
+
+
 def question_count(request):
     # echo in PHP.. I'm going to try returning concatinated string and see if that works...
     if request.method == 'GET':

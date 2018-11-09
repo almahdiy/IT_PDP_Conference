@@ -25,7 +25,21 @@
 
 <!--Main content of the page-->
 <div id="main" onclick="closeNav()">
-    <h3>Q&A voting</h3>
+
+    <section>
+        <h1 class="subtitle">Q&A Voting</h1>
+        <p>
+            Scroll to the bottom to post a new question. Once posted, your
+            question will be evaluated by our moderators so please wait until
+            it appears!
+        </p>
+        <p>
+            Otherwise, vote for an existing question by selecting the orange
+            button and hitting the vote button.
+        </p>
+    </section>
+
+
     <form class="form" action="question_voting" method="POST">
         {% csrf_token %}
         {% for question in questions %}

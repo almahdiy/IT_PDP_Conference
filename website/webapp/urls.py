@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^question_voting$', views.question_voting, name="question_voting"),
     url(r'^icebreaker_submit$', views.icebreaker_submit, name="icebreaker_submit"),
     url(r'^vote_count_ajax/(?P<pk>[0-9]+)/$', views.vote_count_ajax, name="vote_count_ajax"),
+    url(r'^vote_count_ajax_all/$', views.vote_count_ajax_all, name="vote_count_ajax_all"),
     url(r'^question_count$', views.question_count, name="question_count"),
     url(r'^metaverse$', views.metaverse, name="metaverse"),
     url(r'^committee$', views.committee, name="committee"),

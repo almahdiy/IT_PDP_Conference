@@ -33,31 +33,23 @@ function fetchData(URL) {
     xmlHttp.send(null);
 
     if (xmlHttp.readyState === DONE && xmlHttp.status === SUCCESS) {
-        return xmlHttp.responseXML;
+        return xmlHttp;
     }
 }
 
 
 function updateVotes() {
-    console.trace();
-    console.group("Process Logs");
-    console.count("Process: ");
 
     let data;
-    let vote_count;
-    let question_count;
-
-    // Fetch question count
-    data = fetchData(FRONTEND_URL + "/question_count");
-    question_count = data.firstChild.textContent;
-    console.debug("Question count:" + question_count);
+    let lines;
 
     // Update votes
-    for (let i = 1; i <= question_count; i++) {
-        data = fetchData(FRONTEND_URL + "/vote_count_ajax/" + i);
-        vote_count = data.firstChild.textContent;
-        document.getElementById("ajaxId" + i).textContent = vote_count;
-    }
+    data = fetchData(FRONTEND_URL + "/vote_count_ajax_all/");
+    lines = data.responseText.split("\n");
 
-    console.groupEnd();
+    for (let i = 0; i < lines.length; i++) {
+        id = lines[i].split(" ")[0];
+        votes = lines[i].split(" ")[1];
+        document.getElementById("ajaxId" + id).textContent = votes;
+    }
 }

@@ -27,12 +27,10 @@ class MCQOptionSerializer(serializers.ModelSerializer):
         fields = '__all__'    
 
 
-
 class MACSerializer(serializers.ModelSerializer):
     class Meta:
         model = MAC
         fields = '__all__'    
-
 
 
 class OptionVotingSerializer(serializers.ModelSerializer):
@@ -45,5 +43,4 @@ class QuestionVotingSerializer(serializers.ModelSerializer):
     class Meta:
         model = QuestionVoting
         fields = '__all__'    
-
 

@@ -6,6 +6,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from django.core import serializers
+
 from .models import Question, MCQ, MCQOption, MAC, OptionVoting, QuestionVoting
 from .serializers import QuestionSerializer, AuthenticationSerializer, MCQSerializer, MCQOptionSerializer, \
     MACSerializer, OptionVotingSerializer, QuestionVotingSerializer
@@ -109,7 +111,6 @@ class QuestionVotingDetail(APIView):
 
 
 
-
 class MACList(APIView):
     """
     List all Question objects, or add a new Question to the database.
@@ -154,6 +155,7 @@ class MACDetail(APIView):
         mac = self.get_object(pk)
         mac.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 
 
@@ -316,6 +318,16 @@ def vote_count_ajax(request, pk):
     # queryset = serializers.serialize('xml', Question.objects.all())
     return HttpResponse(string, content_type="application/xml")
 
+
+@api_view(['GET'])
+def vote_count_ajax_all(request):
+    data = ""
+    for question in Question.objects.all():
+        data += "{} {}\n".format(question.id, question.votes)
+    data = data.strip()
+    return HttpResponse(data, content_type="application/xml")
+
+
 @api_view(['GET'])
 def question_count(request):
     print("Do we get here?")
@@ -325,8 +337,6 @@ def question_count(request):
     string += str(count)
     string += "</response>"
     return HttpResponse(string)
-
-
 
 
 @api_view(['PUT'])
