@@ -128,7 +128,8 @@ def QA(request):
         # print(list_of_questions[0])
         #Filtering inappropriate questions
         list_of_appropriate_questions = [question for question in list_of_questions if question["isAppropriate"]]
-        
+        list_of_appropriate_questions = sorted(list_of_appropriate_questions, key=lambda k: k['votes'], reverse=True)
+
         # print(list_of_questions)
         # r.json() returns a list of dictionaries, where every dictionary represents an object
         context = {

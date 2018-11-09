@@ -39,7 +39,6 @@ function fetchData(URL) {
 
 
 function updateVotes() {
-
     let data;
     let lines;
 
@@ -50,8 +49,8 @@ function updateVotes() {
     for (let i = 0; i < lines.length; i++) {
         id = lines[i].split(" ")[0];
         votes = lines[i].split(" ")[1];
-	elem =  document.getElementById("ajaxId" + id);
-	if (typeof elem !== "undefined" && elem !== null) {
+        elem =  document.getElementById("ajaxId" + id);
+        if (typeof elem !== "undefined" && elem !== null) {
             elem.textContent = votes;
         }
     }
