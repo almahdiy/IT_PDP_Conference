@@ -8,6 +8,12 @@ ColorPalette {
            #77918E;
 }
 
+Buttons {
+    color: #203864,
+           #C00000
+           #385723
+}
+
 /**********************************GLOBAL CSS**********************************/
 
 html {
@@ -293,6 +299,22 @@ div#images a{
     text-decoration: none;
 }
 
+/******************************ICEBREAKER PAGE CSS*****************************/
+
+button.colourButton {
+    background: #5e7777;
+    border: 1px solid black;
+    color: #efe1b8;
+    cursor: pointer;
+    font-family: 'Teko', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    height: 40px;
+    margin: 10px auto 10px auto;
+    width: 60px;
+    text-shadow: 1px 1px black;
+}
+
 /****************** BASIC INPUT ELEMENT USING PSEUDO-CLASSES ******************/
 
 input,
@@ -415,10 +437,8 @@ input[type="submit"] {
     padding: 10px;
     cursor: pointer;
     background: #ffaa0c;
-    display: block;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 input[type="submit"]:hover {

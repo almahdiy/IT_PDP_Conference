@@ -15,40 +15,30 @@
 
     <!-- External link (relative) to your javascript file -->
     <script src="../../static/js/navbar.js"></script>
-    <script src="../../static/js/icebreaker.js"></script>
 </head>
 
 <body>
 {% include './components/navbar.html' %}
 {% include './components/topbar_icebreaker.html' %}
 
-<div id="main" onclick="closeNav()" style="text-align: center">
-
-    <section>
-        <h1 class="subtitle">Two Truths And A Lie</h1>
-        <p>
-            Each colour matches an answer. Choose the colour that matches the
-            lie and raise your phone to vote for that answer!
-        </p>
-    </section>
-
-    <button class="colourButton"
-            style="background: rgb(0, 0, 255)"
-            onclick="changeColor('rgb(0, 0, 255)', event)">Blue
-    </button>
-
-    <button class="colourButton"
-            style="background: rgb(255, 0, 0)"
-            onclick="changeColor('rgb(255, 0, 0)', event)">Red
-    </button>
-
-    <button class="colourButton"
-            style="background: rgb(0, 255, 0)"
-            onclick="changeColor('rgb(0, 255, 0)', event)">Green
-    </button>
-
+<!--Main content of the page-->
+<div>
+    {% for question in questions %}
+    <form class="form" action="icebreaker_submit" method="POST">
+        {% csrf_token %}
+        <h2>{{question.question}}</h2>
+        {% for option in question.options %}
+        <div class="inputGroup">
+            <input id={{option.id}} value={{option.id}} name="radio" type="radio"/>
+            <label for={{option.id}}>{{option.option}}
+            </label>
+        </div>
+        <br><br>
+        {% endfor %}
+        <button type="submit" value="Submit">Submit!</button>
+    </form>
+    {% endfor %}
 </div>
-
 </body>
 </html>
 
