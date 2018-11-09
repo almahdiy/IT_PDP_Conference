@@ -61,4 +61,4 @@ class OptionVoting(models.Model):
 #table to help validate the vote before 
 class QuestionVoting(models.Model):
     question_id = models.ForeignKey('Question', on_delete=models.CASCADE, null=True,) # When the question is deleted, the option will also be deleted.
-    unique = models.IntegerField(default=0) #MAC address, IP, ...etc
+    unique = models.CharField(default="0.0.0.0", max_length=15) #MAC address, IP, ...etc
