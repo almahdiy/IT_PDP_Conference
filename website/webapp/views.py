@@ -1,13 +1,10 @@
-import requests
-from django.core import serializers
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from django.shortcuts import render
-from django.template import loader
-from rest_framework.response import Response
 import json
 from uuid import getnode as get_mac
 
-
+import requests
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render
+from django.template import loader
 
 from .forms import AuthenticationForm, NewQuestionForm
 
@@ -64,7 +61,7 @@ def home(request):
             dic = {"sessionID": sessionID}
 
             r = requests.post(BACKEND_URL + 'authenticate/', data=dic)
-            print(r.text)
+            # print(r.text)
             if (r.text == "false"):  # None was returned
                 # print("wrong session ID")  # need to display an error message e.g. "wrong session ID try again" will do this later
                 form = AuthenticationForm()
@@ -196,7 +193,7 @@ def create_question(request):
 
 def question_voting(request):
     try:
-        print("Is this my IP? {}".format(request.environ['REMOTE_ADDR']))
+        # print("Is this my IP? {}".format(request.environ['REMOTE_ADDR']))
         message = {"votes" : dict(request.POST)["checkbox"], "ip_address": request.environ['REMOTE_ADDR']}
         r = requests.post(BACKEND_URL + 'vote/', data=message)
         return HttpResponseRedirect('QA')

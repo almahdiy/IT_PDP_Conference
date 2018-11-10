@@ -160,7 +160,7 @@ def authenticate(request):
     """
     Takes a session ID and compares it to a constant value
     """
-    print("HERE")
+    # print("HERE")
     if(request.method == 'POST'):
         #data is a dictionary that has the username and the password the user tried
         data = AuthenticationSerializer(request.data).data
@@ -226,7 +226,7 @@ class MCQOptionList(APIView):
     def get(self, request, format=None):
         options = MCQOption.objects.all()
         serializer = MCQOptionSerializer(options, many=True)
-        print("are we getting here?")
+        # print("are we getting here?")
         return Response(serializer.data)
 
     def post(self, request, format=None):
@@ -310,7 +310,7 @@ def vote_count_ajax(request, pk):
     #add vote count
     string += str(Question.objects.get(pk=pk).votes) + ""
     string += "</response>"
-    print(string)
+    # print(string)
     # queryset = serializers.serialize('xml', Question.objects.all())
     return HttpResponse(string, content_type="application/xml")
 
@@ -326,7 +326,7 @@ def vote_count_ajax_all(request):
 
 @api_view(['GET'])
 def question_count(request):
-    print("Do we get here?")
+    # print("Do we get here?")
     count = len(Question.objects.all())
     string = """<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>\n<response>"""
     #add vote count
