@@ -245,6 +245,23 @@ h2.topnav {
 
 h1.splash_title {
     font-size: 50px;
+    color: #efe1b8;
+    text-shadow: 1px 1px black;
+}
+
+body#splash_body {
+    background: #77918E;
+    margin: 200px 60px 50px 60px;
+    text-align: center;
+
+    background-image: url(../images/logo_splash_background.png);
+    background-position: center 110px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#splash_form {
+    border: 1px black;
 }
 
 /*******************************AGENDA PAGE CSS********************************/
@@ -317,12 +334,13 @@ button.colourButton {
 
 /****************** BASIC INPUT ELEMENT USING PSEUDO-CLASSES ******************/
 
+
 input,
 span,
      /*label,*/
 textarea {
     font-family: 'Rajdhani', sans-serif;
-    background-color: #77918E;
+    /*background-color: #77918E;*/
     border: #5e7777;
     color: #efe1b8;
     display: block;
@@ -367,8 +385,8 @@ textarea.question + label {
     white-space: nowrap;
     padding: 0;
     margin: 20px;
-    width: 10%;
-    border-top: 1px solid #ff7b0f;
+    width: 20%;
+    border-top: 3px solid #ff7b0f;
     -webkit-transition: width 0.4s ease;
     transition: width 0.4s ease;
     height: 0;
@@ -470,21 +488,6 @@ input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input
     }
 }
 
-body#splash_body {
-    background-color: #77918E;
-    /* top right down left*/
-    margin: 200px 60px 50px 60px;
-    text-align: center;
-
-}
-
-div#splash_background {
-    background-image: url(../images/logo_splash_background.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    padding: 15px;
-}
 
 /* Ice breaker specific styling */
 

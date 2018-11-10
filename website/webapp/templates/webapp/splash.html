@@ -18,20 +18,21 @@
 </head>
 
 <body id="splash_body">
-    <!-- <div id="splash_background"> -->
-        <h1 class="splash_title">Hello World!</h1>
-        <form action="" method="POST">
+
+        <!--<img id="splash_background" src="../../static/images/logo_splash_background.png"/>-->
+
+        <h1 class="splash_title">2018<br>IT PDP<br>Conference!<br></h1>
+        <form id="splash_form" action="" method="POST">
             <!-- CSRF token: not having it returns a Forbidden 403 message-->
-            {% csrf_token %} 
+            {% csrf_token %}
 
             <input type="text" name="sessionID" class="question" id="sessionID" required autocomplete="off" />
-            <label for="sessionID"><span>Enter the session ID</span></label>
+            <label for="sessionID"><span>Enter session ID:</span></label>
             <!--{{ form.username.errors }}
             <!-- <textarea name="message" rows="2" class="question" id="msg" required autocomplete="off"></textarea>
             <label for="msg"><span>What's your message?</span></label> -->
             <input type="submit" value="Submit!" />
         </form>
-    <!-- </div> -->
-   
+
 </body>
 </html>
