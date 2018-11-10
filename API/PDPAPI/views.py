@@ -1,18 +1,14 @@
-from pprint import pprint
-
 from django.http import Http404, HttpResponse
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from django.core import serializers
-
 from .models import Question, MCQ, MCQOption, MAC, OptionVoting, QuestionVoting
 from .serializers import QuestionSerializer, AuthenticationSerializer, MCQSerializer, MCQOptionSerializer, \
     MACSerializer, OptionVotingSerializer, QuestionVotingSerializer
 
-SESSION_ID = "1234"
+SESSION_ID = "2018"
 
 class QuestionList(APIView):
     """

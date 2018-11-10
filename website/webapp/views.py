@@ -12,7 +12,7 @@ from uuid import getnode as get_mac
 from .forms import AuthenticationForm, NewQuestionForm
 
 # To be replaced once we have the API on the production server
-BACKEND_URL = "http://www.pdp-adapting.com:10000/"
+BACKEND_URL = "http://127.0.0.1:10000/"
 NOT_LOGGED_IN = "0"
 
 
@@ -73,7 +73,7 @@ def home(request):
             else:
                 # Submitted session ID is correct, set the current browser session and redirect to home
                 request.session['loggedin'] = 1
-                request.session['mac_address'] = requests.environ['REMOTE_ADDR']
+                request.session['mac_address'] = request.environ['REMOTE_ADDR']
                 #request.session.set_expiry(600)
                 # print("In database")
                 template = loader.get_template("webapp/home.html")
