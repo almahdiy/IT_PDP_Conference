@@ -507,7 +507,7 @@ input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input
 /* Text in the unselected options */
 .inputGroup label {
     padding: 12px 70px 12px 90px;
-    width: 80%;
+    width: 70%;
     white-space: normal;
     height: 100%;
     display: block;
@@ -606,8 +606,6 @@ code {
 } */
 
 
-
-
 /* Q&A Submitting a new question */
 
 .collapsible {
@@ -672,3 +670,4 @@ code {
     color: #efe1b8;
 
   }
+

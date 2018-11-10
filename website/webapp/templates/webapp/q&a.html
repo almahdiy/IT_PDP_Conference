@@ -45,9 +45,9 @@
         {% for question in questions %}
         <div class="inputGroup">
             <input id={{question.id}} name="checkbox" type="checkbox" value={{question.id}}> 
-            <label for={{question.id}}>{{question.body |linebreaks}} 
+            <label for={{question.id}}>{{question.body |linebreaks}}
                 <!-- Tag for the AJAX part -->
-                <p id={{question.ajaxId}} value={{question.ajaxId}}>{{question.votes}}</p> 
+                <p id={{question.ajaxId}} value={{question.ajaxId}}>{{question.votes}}</p>
             </label>
             <!-- <label for={{question.id}}>{{question.body |linebreaks}} Votes: {{question.votes |linebreaks}}</p> </label> -->
         </div>

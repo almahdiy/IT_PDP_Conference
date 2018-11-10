@@ -47,19 +47,9 @@ TODO_Critical
 -------------
 - Stress test remote development server
 - Deploy Django App on a production web server (do not use manage.py!)
-- Fix the splash menu authentication bug
-- Add rectangular instructions to Metaverse page
 
 TODO_Regular
 ------------
-- Ensure everyone's name is correct (Ask Aqeel for corrected name list)
 - Update the agenda with the mobile friendly infographic
-
-- Deny URL hijacking for users who bypass splash menu
 - Improve security on production server
 - Get an SSL certificate
-
-TODO_Luxury
------------
-- Add swiping motion on sidebar
-
