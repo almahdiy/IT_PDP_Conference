@@ -18,7 +18,6 @@ function createXmlHttpRequestObject()
         //If any other *modern* browser is used
         else {
             xmlHttp = new XMLHttpRequest(); //built-in function
-            console.debug(xmlHttp.readyState);
         }
         return xmlHttp;
     } catch (e) {
@@ -41,17 +40,50 @@ function fetchData(URL) {
 function updateVotes() {
     let data;
     let lines;
+    let parsed;
 
-    // Update votes
+    // Fetch ID, votes, and question body
     data = fetchData(FRONTEND_URL + "/vote_count_ajax_all/");
     lines = data.responseText.split("\n");
 
+    var n = document.getElementById("questionsForm");
+    while (n.firstChild) {
+        n.removeChild(n.firstChild);
+    }
+
+    // Update ID, votes, and question body in rectangles
     for (let i = 0; i < lines.length; i++) {
-        id = lines[i].split(" ")[0];
-        votes = lines[i].split(" ")[1];
-        elem =  document.getElementById("ajaxId" + id);
-        if (typeof elem !== "undefined" && elem !== null) {
-            elem.textContent = votes;
-        }
+        parsed = /([0-9]+) ([0-9]+) (.*)/.exec(lines[i]);
+        id = parsed[1];
+        votes = parsed[2];
+        body = parsed[3];
+
+        var div = document.createElement("div");
+        div.setAttribute("class",  "inputGroup");
+
+        var inp = document.createElement("inp");
+        inp.setAttribute("id",  id);
+        inp.setAttribute("name", "checkbox");
+        inp.setAttribute("type", "checkbox");
+        inp.setAttribute("value", id);
+
+        var label = document.createElement("label");
+        label.setAttribute("for", id);
+
+        var p1 = document.createElement("p");
+        p1.setAttribute("id", "ajaxId" + id + "Body");
+        p1.textContent = body;
+
+        var p2 = document.createElement("p");
+        p2.setAttribute("id", "ajaxId" + id);
+        p2.textContent = votes;
+
+        label.appendChild(p1);
+        label.appendChild(p2);
+        inp.appendChild(label);
+        div.appendChild(inp);
+
+        document.getElementById("questionsForm").appendChild(div);
     }
 }
+

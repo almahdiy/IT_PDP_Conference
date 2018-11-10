@@ -111,7 +111,7 @@ def icebreaker(request):
         return HttpResponse(template.render(context, request))
 
 
-@authenticate
+# @authenticate
 def QA(request):
     template = loader.get_template("webapp/q&a.html")
     if request.method == 'GET':

@@ -332,6 +332,26 @@ button.colourButton {
     text-shadow: 1px 1px black;
 }
 
+/**********************************QA PAGE CSS*********************************/
+
+button.qa {
+    background: #ff7b0f;
+    border: 1px solid black;
+    color: #efe1b8;
+    cursor: pointer;
+    font-family: 'Teko', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    height: 40px;
+    margin: 10px auto 10px auto;
+    width: 180px;
+    text-shadow: 1px 1px black;
+}
+
+div.centrifugal {
+    text-align: center;
+}
+
 /****************** BASIC INPUT ELEMENT USING PSEUDO-CLASSES ******************/
 
 
@@ -492,9 +512,9 @@ input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input
 /* Ice breaker specific styling */
 
   /* The entire rectangle */
-  .inputGroup {
+.inputGroup {
     display: inline-block;
-    background-color: #77918E; 
+    background-color: #77918E;
     vertical-align: middle;
     width: 100%;
     overflow: hidden;
@@ -578,10 +598,11 @@ input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input
 .form {
     padding: 0 16px;
     max-width: 550px;
-    margin: 50px auto;
+    margin: 20px auto;
     font-size: 18px;
     font-weight: 600;
     line-height: 36px;
+    text-align: center;
 }
 
 *,
@@ -641,11 +662,12 @@ code {
     text-align:center;
     background-color: #ff7b0f;
     font-size: inherit;
-    color: #ffaa0c;
+    color: #efe1b8;
     font-weight: bold;
     float: right;
     font-size: 20px;
     /* margin-left: 5px; */
+      border: 1px solid black;
   }
   
   .active:after {

@@ -39,37 +39,35 @@
         </p>
     </section>
 
-
-    <form class="form" action="question_voting" method="POST">
+    <form id="questionsForm" class="form" action="question_voting" method="POST">
         {% csrf_token %}
         {% for question in questions %}
         <div class="inputGroup">
-            <input id={{question.id}} name="checkbox" type="checkbox" value={{question.id}}> 
-            <label for={{question.id}}>{{question.body |linebreaks}}
-                <!-- Tag for the AJAX part -->
-                <p id={{question.ajaxId}} value={{question.ajaxId}}>{{question.votes}}</p>
+            <input id={{question.id}} name="checkbox" type="checkbox" value={{question.id}}>
+            <label for={{question.id}}>
+                <p id={{question.ajaxId}}Body>{{question.body}}</p>
+                <p id={{question.ajaxId}}>{{question.votes}}</p>
             </label>
-            <!-- <label for={{question.id}}>{{question.body |linebreaks}} Votes: {{question.votes |linebreaks}}</p> </label> -->
         </div>
-
         {% endfor %}
-        <button class="submit" type="submit" value="Submit">Vote!</button>
     </form>
+
+    <div class="centrifugal">
+        <button class="qa" type="submit" value="Submit">Vote!</button>
+    </div>
     <br><br><br>
 
     <button class="collapsible">Have a question? Post it!</button>
     <div class="content">
         <form action="create_question" method="POST">
             {% csrf_token %}
-            <!-- <label for="question">Question: </label>
-            <br> -->
-            <textarea rows="4" cols="50" id="question" type="text" name="body"></textarea>
-            <br>
-            
-            <!--<button type="submit">Upload</button>-->
-            
-            <button class="submit" type="submit" value="Submit">Submit question</button>
+            <textarea rows="4" cols="50" id="question" type="text" name="body"></textarea><br>
         </form>
+
+        <div class="centrifugal">
+            <button class="qa" type="submit" value="Submit">Submit question</button>
+        </div>
+
     </div>
     <script>
         var coll = document.getElementsByClassName("collapsible");

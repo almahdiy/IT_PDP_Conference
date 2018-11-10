@@ -317,9 +317,12 @@ def vote_count_ajax(request, pk):
 
 @api_view(['GET'])
 def vote_count_ajax_all(request):
+    list_of_appropriate_questions = [question for question in Question.objects.all() if question.isAppropriate]
+    list_of_appropriate_questions = sorted(list_of_appropriate_questions, key=lambda k: k.votes, reverse=True)
+
     data = ""
-    for question in Question.objects.all():
-        data += "{} {}\n".format(question.id, question.votes)
+    for question in list_of_appropriate_questions:
+        data += "{} {} {}\n".format(question.id, question.votes, str(question.body))
     data = data.strip()
     return HttpResponse(data, content_type="application/xml")
 

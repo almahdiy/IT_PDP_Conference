@@ -46,7 +46,6 @@ Authors
 TODO_Critical
 -------------
 - Stress test remote development server
-- Deploy Django App on a production web server (do not use manage.py!)
 
 TODO_Regular
 ------------
