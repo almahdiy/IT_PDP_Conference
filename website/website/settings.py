@@ -23,12 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'mg)0p3f+#bn8w%(dwx-80f*npgh2#ti(0gn!jm33s(@pq7hhq)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["www.pdp-adapting.com", 
-                 "127.0.0.1", 
-		 "ubuntu-s-1vcpu-1gb-lon1-01", 
-		 "46.101.40.39"]
+ALLOWED_HOSTS = ["www.pdp-adapting.com",
+                 "pdp-adapting.com",
+                 "127.0.0.1",
+                 "ubuntu-s-1vcpu-1gb-lon1-01",
+                 "46.101.40.39"]
 
 
 # Application definition
