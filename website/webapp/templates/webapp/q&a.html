@@ -53,17 +53,20 @@
         </div>
 
         {% endfor %}
-        <button class="submit" type="submit" value="Submit">Vote!</button>
+        <div style="text-align: center">
+            <button class="submit" type="submit" value="Submit">Vote!</button>
+            <button class="submit" type="submit" value="Submit">Fetch New Questions!</button>
+        </div>
     </form>
     <br><br><br>
 
-    <button class="collapsible">Have a question? Post it!</button>
+    <button class="collapsible">Have a question? Post below!</button>
     <div class="content">
         <form action="create_question" method="POST">
             {% csrf_token %}
             <!-- <label for="question">Question: </label>
             <br> -->
-            <textarea rows="4" cols="50" id="question" type="text" name="body"></textarea>
+            <textarea id="finisher" rows="4" cols="50" id="question" type="text" name="body"></textarea>
             <br>
             
             <!--<button type="submit">Upload</button>-->
@@ -87,7 +90,7 @@
             });
         }
         </script>
-    <br><br>
+    <br><br><br>
 </div>
 </body>
 </html>

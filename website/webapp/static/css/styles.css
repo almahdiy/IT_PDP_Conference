@@ -351,6 +351,10 @@ textarea {
     margin-right: auto;
 }
 
+textarea#finisher {
+    color: #333333;
+}
+
 textarea:focus,
 input:focus {
     outline: 0;
@@ -663,11 +667,12 @@ code {
 
   .submit {
     padding: 15px 15px;
-    display: block;
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
     background-color: #ff7b0f;
     color: #efe1b8;
+      width: 170px;
 
   }
 
