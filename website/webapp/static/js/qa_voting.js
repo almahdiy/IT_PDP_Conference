@@ -1,4 +1,4 @@
-const FRONTEND_URL = "http://127.0.0.1:80";
+const FRONTEND_URL = "http://www.pdp-adapting.com:80";
 const DONE = 4;
 const SUCCESS = 200;
 
