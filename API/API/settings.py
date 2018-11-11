@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'g+oqg)l9_baw%8k7ac7tr(xz9c^yzssy*o9&iomcf_!%l3@y4i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["www.pdp-adapting.com",
                  "pdp-adapting.com",
